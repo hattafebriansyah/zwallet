@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.ProfileFragment"
+    android:background="@color/backgroundColor"
+    >
+
+    <TextView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:textSize="20sp"
+       android:layout_marginTop="10dp"
+        android:drawableStart="@drawable/ic_baseline_arrow_back_24"
+        android:textColor="@color/darkGreyColor"
+        android:layout_marginHorizontal="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/profileHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnBack"
+        >
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imageUser"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/user"
+            android:layout_marginBottom="5dp"
+            app:shapeAppearanceOverlay="@style/RoundCornerOverlay"/>
+
+
+        <TextView
+            android:id="@+id/nameTransaction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit"
+            android:gravity="center"
+            android:layout_marginBottom="15dp"
+            android:textSize="16sp"
+            android:textColor="@color/darkGreyColor"
+            android:drawableStart="@drawable/ic_baseline_edit_24"/>
+        <TextView
+            android:id="@+id/typeTransaction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hatta Febriansyah"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="5dp"
+            android:textSize="24sp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/amountTransaction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+62 823-1234-1234"
+            android:gravity="center"
+            android:textColor="@color/darkGreyColor"/>
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnPersonalInformation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Personal Information"
+        android:textSize="16sp"
+        android:layout_marginHorizontal="16dp"
+        android:padding="15dp"
+        android:layout_marginVertical="20dp"
+        android:textColor="@color/black"
+        android:background="@drawable/background_item_transaction_home"
+        android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
+        app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/profileHeader"
+        android:textAllCaps="false"
+        android:textAlignment="textStart"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnChangePassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Change Password"
+        android:textSize="16sp"
+        android:layout_marginHorizontal="16dp"
+        android:padding="15dp"
+        android:layout_marginVertical="20dp"
+        android:textColor="@color/black"
+        android:background="@drawable/background_item_transaction_home"
+        android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
+        app:layout_constraintTop_toBottomOf="@id/btnPersonalInformation"
+        android:textAllCaps="false"
+        android:textAlignment="textStart"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnChangePin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Change PIN"
+        android:textSize="16sp"
+        android:layout_marginHorizontal="16dp"
+        android:padding="15dp"
+        android:layout_marginVertical="20dp"
+        android:textColor="@color/black"
+        android:background="@drawable/background_item_transaction_home"
+        android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
+        app:layout_constraintTop_toBottomOf="@id/btnChangePassword"
+        android:textAllCaps="false"
+        android:textAlignment="textStart"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnToggleNotification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Notification"
+        android:textSize="16sp"
+        android:layout_marginHorizontal="16dp"
+        android:padding="15dp"
+        android:layout_marginVertical="20dp"
+        android:textColor="@color/black"
+        android:background="@drawable/background_item_transaction_home"
+        android:drawableEnd="@drawable/ic_baseline_toggle_on_24"
+        app:layout_constraintTop_toBottomOf="@id/btnChangePin"
+        android:textAllCaps="false"
+        android:textAlignment="textStart"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:textSize="16sp"
+        android:layout_marginHorizontal="16dp"
+        android:padding="15dp"
+        android:textAlignment="center"
+        android:layout_marginVertical="20dp"
+        android:textAllCaps="false"
+        android:textColor="@color/redColor"
+        android:background="@drawable/background_item_transaction_home"
+        app:layout_constraintTop_toBottomOf="@id/btnToggleNotification"
+        />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

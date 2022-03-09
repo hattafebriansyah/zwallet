@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:padding="15dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/background_item_transaction_home">
+
+<!--    <ImageView-->
+<!--        android:id="@+id/pictureUser1"-->
+<!--        android:layout_width="54dp"-->
+<!--        android:layout_height="54dp"-->
+<!--        android:src="@drawable/user"-->
+<!--        android:background="@drawable/background_image_item"/>-->
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageTransaction"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/user"
+        app:shapeAppearanceOverlay="@style/RoundCornerOverlay"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_marginStart="10dp"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/nameTransaction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pokemon Api"
+            android:gravity="center"
+            android:layout_marginBottom="5dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/typeTransaction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transaction"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:textColor="@color/darkGreyColor"/>
+
+    </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/amountTransaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+ Rp 50.000"
+        android:gravity="center"
+        android:textColor="@color/greenColor"/>
+
+
+</LinearLayout>

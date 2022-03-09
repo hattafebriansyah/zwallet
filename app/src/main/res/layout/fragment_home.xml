@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/backgroundColor"
+    tools:context=".ui.main.HomeFragment">
+
+    <!--card balance-->
+    <include
+        android:id="@+id/cardBalance"
+        layout="@layout/item_balance_home"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!--history-->
+    <TextView
+        android:id="@+id/transactionHistoryTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transaction History"
+        android:textSize="18sp"
+        style="@style/TextView.MainActivity.Title"
+        android:textColor="#514F5B"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardBalance"/>
+
+    <TextView
+        android:id="@+id/viewAllTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View All"
+        style="@style/TextView.MainActivity.ViewAll"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardBalance"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerTransaction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/transactionHistoryTitle"
+        tools:listitem="@layout/item_transaction_home"
+        android:scrollbars="horizontal"
+        android:orientation="horizontal"
+        android:scrollbarSize="5dp"
+        android:fadeScrollbars="false"
+
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
