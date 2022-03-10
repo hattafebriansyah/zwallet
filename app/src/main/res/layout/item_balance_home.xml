@@ -74,7 +74,7 @@
                     android:textSize="16sp"
                     android:textColor="@color/greyColor"/>
                 <TextView
-                    android:id="@+id/typeTransaction"
+                    android:id="@+id/balance"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Rp 12.000"
@@ -84,7 +84,7 @@
                     android:textSize="24sp"
                     android:textColor="@color/white"/>
                 <TextView
-                    android:id="@+id/amountTransaction"
+                    android:id="@+id/phoneAccount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+62 823-1234-1234"

@@ -18,5 +18,9 @@
         android:id="@+id/profileFragment"
         android:name="com.hatta.zwallet.ui.main.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/profileActionHome"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>
