@@ -1,11 +1,9 @@
 package com.hatta.zwallet.data.api
 
 
-import com.hatta.zwallet.model.APIResponse
-import com.hatta.zwallet.model.Balance
-import com.hatta.zwallet.model.User
-import com.hatta.zwallet.model.UserDetail
+import com.hatta.zwallet.model.*
 import com.hatta.zwallet.model.request.LoginRequest
+import com.hatta.zwallet.model.request.RefreshTokenRequest
 import com.hatta.zwallet.model.request.RegisterRequest
 import retrofit2.Call
 import retrofit2.http.Body
@@ -14,7 +12,7 @@ import retrofit2.http.POST
 
 interface ZWalletApi {
     @POST("auth/login")
-     fun login(@Body request: LoginRequest): Call<APIResponse<User>>
+     suspend fun login(@Body request: LoginRequest): APIResponse<User>
 
     @POST("auth/signup")
      fun register(@Body request: RegisterRequest): Call<APIResponse<User>>
@@ -23,7 +21,13 @@ interface ZWalletApi {
     fun getUserDetail():Call<APIResponse<UserDetail>>
 
     @GET("home/getBalance")
-    fun getBalance():Call<APIResponse<List<Balance>>>
+    suspend fun getBalance():APIResponse<List<Balance>>
+
+    @GET("home/getInvoice")
+    suspend fun getInvoice():APIResponse<List<Invoice>>
+
+    @POST("auth/refresh-token")
+    fun refreshToken(@Body request: RefreshTokenRequest): Call<APIResponse<User>>
 
 
 }

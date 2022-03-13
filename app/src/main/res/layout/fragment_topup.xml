@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.topup.TopupFragment"
+    android:background="@color/backgroundColor">
+
+    <TextView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:drawableStart="@drawable/ic_baseline_arrow_back_24"
+        android:textColor="@color/darkGreyColor"
+        android:layout_marginHorizontal="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/textButtonTopUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="15dp"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:text="Top Up"
+        android:textColor="@color/darkGreyColor"
+        app:layout_constraintStart_toEndOf="@id/btnBack"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/cardTopUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/btnBack"
+        android:background="@drawable/backgound_topup"
+        android:layout_margin="15dp"
+        android:padding="15dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTopUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:minWidth="0dp"
+            android:background="@drawable/backgound_topup"
+            app:backgroundTint="@color/greyColor"
+            app:iconTint="@color/primaryColor"
+            app:icon="@drawable/ic_baseline_add_24"
+            app:iconPadding="0dp"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginStart="15dp"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_va_number"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/darkGreyColor"/>
+            <TextView
+                android:id="@+id/numberAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2389 081393877946"
+                android:gravity="center"
+                android:layout_marginBottom="5dp"
+                android:textSize="16sp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textTopUpDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="15dp"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:text="@string/topup_desc"
+        android:textColor="@color/darkGreyColor"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardTopUp"/>
+
+    <TextView
+        android:id="@+id/textHowToTopUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="15dp"
+        android:textSize="16sp"
+        android:layout_margin="10dp"
+        android:text="How To Top-Up"
+        android:textStyle="bold"
+        android:textColor="@color/darkGreyColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textTopUpDesc"/>
+
+
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@+id/textHowToTopUp"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+            <LinearLayout
+                android:id="@+id/howtoTopUp1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                android:background="@drawable/backgound_topup"
+                android:layout_margin="15dp"
+                android:padding="15dp"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="@color/primaryColor"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/topup1"
+                    android:layout_gravity="center"
+                    android:paddingStart="10dp"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:textSize="14sp"
+                    android:textColor="@color/darkGreyColor"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/howtoTopUp2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/howtoTopUp1"
+                android:background="@drawable/backgound_topup"
+                android:layout_margin="15dp"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="@color/primaryColor"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/topup2"
+                    android:layout_gravity="center"
+                    android:paddingStart="10dp"
+                    android:layout_margin="5dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/darkGreyColor"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/howtoTopUp3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/howtoTopUp2"
+                android:background="@drawable/backgound_topup"
+                android:layout_margin="15dp"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="@color/primaryColor"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/topup3"
+                    android:layout_gravity="center"
+                    android:paddingStart="10dp"
+                    android:layout_margin="5dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/darkGreyColor"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/howtoTopUp4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/howtoTopUp3"
+                android:background="@drawable/backgound_topup"
+                android:layout_margin="15dp"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="@color/primaryColor"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/topup4"
+                    android:layout_gravity="center"
+                    android:paddingStart="10dp"
+                    android:layout_margin="5dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/darkGreyColor"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/howtoTopUp5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/howtoTopUp4"
+                android:background="@drawable/backgound_topup"
+                android:layout_margin="15dp"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="@color/primaryColor"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/topup5"
+                    android:layout_gravity="center"
+                    android:paddingStart="10dp"
+                    android:layout_margin="5dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/darkGreyColor"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/howtoTopUp6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/howtoTopUp5"
+                android:background="@drawable/backgound_topup"
+                android:layout_margin="15dp"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="6"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="@color/primaryColor"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/topup6"
+                    android:layout_gravity="center"
+                    android:paddingStart="10dp"
+                    android:layout_margin="5dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/darkGreyColor"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/howtoTopUp7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/howtoTopUp6"
+                android:background="@drawable/backgound_topup"
+                android:layout_margin="15dp"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="@color/primaryColor"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/topup7"
+                    android:layout_gravity="center"
+                    android:paddingStart="10dp"
+                    android:layout_margin="5dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/darkGreyColor"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/howtoTopUp8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/howtoTopUp7"
+                android:background="@drawable/backgound_topup"
+                android:layout_margin="15dp"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="@color/primaryColor"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/topup8"
+                    android:layout_gravity="center"
+                    android:paddingStart="10dp"
+                    android:layout_margin="5dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/darkGreyColor"/>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+

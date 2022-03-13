@@ -17,5 +17,22 @@
     <string name="text_reset_password">Reset Password</string>
     <string name="hint_new_password">Create new password</string>
     <string name="hint_confirm_password">Confirm new password</string>
+    <string name="text_va_number">Virtual Account Number</string>
+    <string name="topup_desc">We provide you virtual account number for top up via nearest ATM.</string>
+    <string name="topup_howto">How to Top-Up</string>
+    <string name="topup1">Go to the nearest ATM or you can use E-Banking.</string>
+    <string name="topup2">Type your security number on the ATM or E-Banking.</string>n
+    <string name="topup3">Select “Transfer” in the menu</string>
+    <string name="topup4">Type the virtual account number that we provide you at the top.</string>
+    <string name="topup5">Type the amount of the money you want to top up.</string>
+    <string name="topup6">Read the summary details.</string>
+    <string name="topup7">Press transfer / top up.</string>
+    <string name="topup8">You can see your money in Zwallet within 3 hours.</string>
+    <string name="textBtnPersonalInformation">Personal Infomration</string>
+    <string name="personal_information_desc">We got your personal information from the sign up process. If you want to make changes on your information, contact our support.</string>
+    <string name="textFirstName">First Name</string>
+    <string name="textLastName">Last Name</string>
+    <string name="textVerifiedEmail">Verified Email</string>
+    <string name="textNumberPhone">Number Phone</string>
 
 </resources>

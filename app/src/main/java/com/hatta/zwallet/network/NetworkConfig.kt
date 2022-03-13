@@ -6,14 +6,16 @@ import com.hatta.zwallet.data.api.ZWalletApi
 import com.hatta.zwallet.utils.BASE_URL
 import com.hatta.zwallet.utils.KEY_USER_TOKEN
 import com.hatta.zwallet.utils.PREFS_NAME
-import okhttp3.OkHttp
+import okhttp3.Authenticator
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class NetworkConfig (val context: Context?){
-   private fun getInterceptor():OkHttpClient {
+    private val preferences = context?.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+
+   private fun getInterceptor(authenticator: Authenticator? = null):OkHttpClient {
        val logging = HttpLoggingInterceptor()
        logging.level = HttpLoggingInterceptor.Level.BODY
        val prefs = context?.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
@@ -22,21 +24,33 @@ class NetworkConfig (val context: Context?){
            .addInterceptor(logging)
 
        if (!token.isNullOrEmpty()) {
-           client.addInterceptor(TokenInterceptor(context))
+           client.addInterceptor(TokenInterceptor(token))
        }
-        return client.build()
+       if (authenticator != null){
+           client.authenticator(authenticator)
+       }
+       return client.build()
     }
 
-   private fun getRetrofit():Retrofit{
+
+
+    private fun getService(): ZWalletApi {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .client(getInterceptor())
             .addConverterFactory(GsonConverterFactory.create())
-            .build()
+            .client(getInterceptor())
+            .build().create(ZWalletApi::class.java)
     }
 
-    fun getService():ZWalletApi {
-     return getRetrofit().create(ZWalletApi::class.java)
+    fun buildApi(): ZWalletApi {
+        val authenticator = RefreshTokenInterceptor(context, getService(), preferences!!)
+        println("authenticator: ${authenticator.context}")
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .client(getInterceptor(authenticator))
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(ZWalletApi::class.java)
     }
 
 }

@@ -1,6 +1,5 @@
-package com.hatta.zwallet.ui.main
+package com.hatta.zwallet.ui.main.home
 
-import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -14,15 +13,18 @@ import com.hatta.zwallet.adapter.TransactionAdapter
 import com.hatta.zwallet.data.Transaction
 import com.hatta.zwallet.databinding.FragmentHomeBinding
 import android.content.SharedPreferences
+import android.os.Handler
 import android.widget.Toast
 import androidx.navigation.Navigation
 import com.hatta.zwallet.model.APIResponse
 import com.hatta.zwallet.model.Balance
 import com.hatta.zwallet.model.UserDetail
 import com.hatta.zwallet.network.NetworkConfig
-import com.hatta.zwallet.ui.SplashScreen
-import com.hatta.zwallet.utils.KEY_LOGGED_IN
-import com.hatta.zwallet.utils.PREFS_NAME
+import com.hatta.zwallet.ui.auth.login.LoginViewModel
+import com.hatta.zwallet.ui.main.MainActivity
+import com.hatta.zwallet.ui.viewModelsFactory
+import com.hatta.zwallet.utils.*
+import com.hatta.zwallet.utils.Helper.formatPrice
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,6 +36,7 @@ class HomeFragment : Fragment() {
     private lateinit var transactionAdapter: TransactionAdapter
     private lateinit var binding: FragmentHomeBinding
     private lateinit var prefs : SharedPreferences
+    private val viewModel : HomeViewModel by viewModelsFactory { HomeViewModel(requireActivity().application)  }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,25 +49,21 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         prefs = context?.getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE)!!
-
-        this.transactionAdapter = TransactionAdapter(transactionData)
-
-        val layoutManager = LinearLayoutManager(context)
-        binding.recyclerTransaction.layoutManager = layoutManager
-        binding.recyclerTransaction.adapter = transactionAdapter
         prepareData()
-        getProfile()
-        getBalance()
+       // getProfile()
 
         binding.cardBalance.imageUser.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.homeActionProfile)
         }
+
+        binding.cardBalance.textButtonTopUp.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.homeActionTopUp)
+        }
     }
 
     private fun getProfile() {
-        NetworkConfig(requireContext()).getService().getUserDetail()
+        NetworkConfig(requireContext()).buildApi().getUserDetail()
             .enqueue(object : Callback<APIResponse<UserDetail>> {
                 override fun onResponse(
                     call: Call<APIResponse<UserDetail>>,
@@ -81,44 +80,41 @@ class HomeFragment : Fragment() {
             })
     }
 
-    private fun getBalance() {
-        NetworkConfig(requireContext()).getService().getBalance()
-            .enqueue(object : Callback<APIResponse<List<Balance>>> {
-                override fun onResponse(
-                    call: Call<APIResponse<List<Balance>>>,
-                    response: Response<APIResponse<List<Balance>>>
-                ) {
-                    binding.cardBalance.balance.text = response.body()?.data?.get(0)?.balance.toString()
-                    binding.cardBalance.phoneAccount.text = response.body()?.data?.get(0)?.phone.toString()
-                }
-
-                override fun onFailure(call: Call<APIResponse<List<Balance>>>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-    }
-
     private fun prepareData(){
-        this.transactionData.add(Transaction(
-            transactionImage = activity?.getDrawable(R.drawable.user)!!,
-            transactionName = "Hatta Febriansyah",
-            transactionType = "Transfer",
-            transactionNominal = 100000.00
-        ))
-        this.transactionData.add(Transaction(
-            transactionImage = activity?.getDrawable(R.drawable.user2)!!,
-            transactionName = "Efrinaldi Al-Zuhri",
-            transactionType = "Transfer",
-            transactionNominal = 100000.00
-        ))
-        this.transactionData.add(Transaction(
-            transactionImage = activity?.getDrawable(R.drawable.user3)!!,
-            transactionName = "M Aftabuddin Arsyad",
-            transactionType = "Transfer",
-            transactionNominal = 100000.00
-        ))
+        this.transactionAdapter = TransactionAdapter(listOf())
+        binding.recyclerTransaction.apply {
+            val layoutManager  = LinearLayoutManager(context)
+            adapter = transactionAdapter
+        }
 
-        this.transactionAdapter.notifyDataSetChanged()
+        viewModel.getBalance().observe(viewLifecycleOwner){
+            if (it.status == HttpsURLConnection.HTTP_OK){
+                this.transactionAdapter.apply {
+                    binding.apply {
+                        cardBalance.nameAccount.text = it.data?.get(0)?.name
+                        cardBalance.balance.formatPrice(it.data?.get(0)?.balance.toString())
+                        cardBalance.phoneAccount.text = it.data?.get(0)?.phone
+                    }
+                }
+            }
+            else {
+                Toast.makeText(context, "Authentication failed: Wrong email/password", Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
+
+        viewModel.getInvoice().observe(viewLifecycleOwner){
+            if (it.status == HttpsURLConnection.HTTP_OK){
+               this.transactionAdapter.apply {
+               addData(it.data!!)
+                   notifyDataSetChanged()
+               }
+            }
+            else {
+                Toast.makeText(context, "Authentication failed: Wrong email/password", Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
     }
 }
 

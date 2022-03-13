@@ -1,4 +1,4 @@
-package com.hatta.zwallet.ui.auth
+package com.hatta.zwallet.ui.auth.forgot
 
 import android.content.Intent
 import android.graphics.Color

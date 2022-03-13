@@ -1,10 +1,8 @@
-package com.hatta.zwallet.ui.auth
+package com.hatta.zwallet.ui.auth.register
 
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.graphics.Color
-import android.os.Binder
 import android.os.Bundle
 import android.os.Handler
 import androidx.fragment.app.Fragment
@@ -13,17 +11,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.Toast
-import androidx.core.widget.addTextChangedListener
 import androidx.navigation.Navigation
 import com.hatta.zwallet.R
-import com.hatta.zwallet.databinding.FragmentLoginBinding
 import com.hatta.zwallet.databinding.FragmentRegisterBinding
 import com.hatta.zwallet.model.APIResponse
 import com.hatta.zwallet.model.User
-import com.hatta.zwallet.model.request.LoginRequest
 import com.hatta.zwallet.model.request.RegisterRequest
 import com.hatta.zwallet.network.NetworkConfig
-import com.hatta.zwallet.ui.main.MainActivity
+import com.hatta.zwallet.ui.auth.AuthActivity
 import com.hatta.zwallet.utils.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -61,7 +56,7 @@ class RegisterFragment : Fragment() {
                 binding.inputPassword.text.toString()
             )
 
-            NetworkConfig(context).getService().register(registerRequest)
+            NetworkConfig(context).buildApi().register(registerRequest)
                 .enqueue(object : Callback<APIResponse<User>> {
                     override fun onResponse(
                         call: Call<APIResponse<User>>,

@@ -15,7 +15,7 @@
         android:theme="@style/Theme.ZWallet"
         tools:targetApi="m">
         <activity
-            android:name=".ui.auth.LoginFragment"
+            android:name=".ui.auth.login.LoginFragment"
             android:exported="false"
             tools:ignore="Instantiatable" />
         <activity

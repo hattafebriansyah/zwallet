@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.hatta.zwallet.ui.auth.LoginFragment"
+        android:name="com.hatta.zwallet.ui.auth.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <action
@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.hatta.zwallet.ui.auth.RegisterFragment"
+        android:name="com.hatta.zwallet.ui.auth.register.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register">
         <action
@@ -31,7 +31,7 @@
 
     <fragment
         android:id="@+id/forgotPasswordFragment"
-        android:name="com.hatta.zwallet.ui.auth.ForgotPasswordFragment"
+        android:name="com.hatta.zwallet.ui.auth.forgot.ForgotPasswordFragment"
         android:label="fragment_forgot_password"
         tools:layout="@layout/fragment_forgot_password" >
         <action
@@ -41,7 +41,7 @@
 
     <fragment
         android:id="@+id/confirmPasswordFragment"
-        android:name="com.hatta.zwallet.ui.auth.ConfirmPasswordFragment"
+        android:name="com.hatta.zwallet.ui.auth.forgot.ConfirmPasswordFragment"
         android:label="fragment_confirm_password"
         tools:layout="@layout/fragment_confirm_password" />
 </navigation>

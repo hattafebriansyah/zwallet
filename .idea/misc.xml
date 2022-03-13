@@ -4,9 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/drawable-v24/background_auth.xml" value="0.163" />
+        <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/backgound_topup.xml" value="0.171" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/backgroun_image_item.xml" value="0.214" />
+        <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/background_auth.xml" value="0.1865" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/background_button.xml" value="0.2165" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/background_button_auth.xml" value="0.197" />
+        <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/background_button_auth_active.xml" value="0.171" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/background_card_transaction.xml" value="0.2165" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/background_input.xml" value="0.138" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/background_item_transaction_home.xml" value="0.214" />
@@ -22,11 +25,14 @@
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_confirm_password.xml" value="0.209375" />
+        <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_detail_profile.xml" value="0.209375" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_forgot_password.xml" value="0.209375" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_home.xml" value="0.14" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_login.xml" value="0.3219954648526077" />
+        <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_personal_information.xml" value="0.209375" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_register.xml" value="0.4249471458773784" />
+        <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_topup.xml" value="0.22" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/item_balance_home.xml" value="0.5" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/item_transaction_home.xml" value="0.33" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/mipmap-anydpi-v26/logoTransfer_round.xml" value="0.163" />

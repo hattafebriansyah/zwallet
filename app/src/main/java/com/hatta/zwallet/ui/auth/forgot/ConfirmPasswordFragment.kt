@@ -1,4 +1,4 @@
-package com.hatta.zwallet.ui.auth
+package com.hatta.zwallet.ui.auth.forgot
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
