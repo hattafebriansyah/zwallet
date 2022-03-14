@@ -9,16 +9,17 @@ import com.hatta.zwallet.model.APIResponse
 import com.hatta.zwallet.model.Balance
 import com.hatta.zwallet.model.Invoice
 import com.hatta.zwallet.network.NetworkConfig
+import com.hatta.zwallet.utils.Resource
 
 class HomeViewModel (app: Application) : ViewModel(){
     private val invoice = mutableListOf<List<Invoice>>()
     private val apiClient : ZWalletApi =  NetworkConfig(app).buildApi()
     private var  dataSource = ZWalletDataSource(apiClient)
 
-    fun getInvoice(): LiveData<APIResponse<List<Invoice>>>{
+    fun getInvoice(): LiveData<Resource<APIResponse<List<Invoice>>?>> {
         return dataSource.getInvoice()
     }
-    fun getBalance(): LiveData<APIResponse<List<Balance>>>{
+    fun getBalance(): LiveData<Resource<APIResponse<List<Balance>>?>> {
         return dataSource.getBalance()
     }
 

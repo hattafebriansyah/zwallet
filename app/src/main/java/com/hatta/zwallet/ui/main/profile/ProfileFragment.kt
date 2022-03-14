@@ -21,6 +21,8 @@ import com.hatta.zwallet.ui.main.home.HomeViewModel
 import com.hatta.zwallet.ui.viewModelsFactory
 import com.hatta.zwallet.utils.Helper.formatPrice
 import com.hatta.zwallet.utils.PREFS_NAME
+import com.hatta.zwallet.utils.State
+import com.hatta.zwallet.widget.LoadingDialog
 import javax.net.ssl.HttpsURLConnection
 
 
@@ -29,6 +31,7 @@ class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
     private lateinit var prefs : SharedPreferences
     private lateinit var transactionAdapter: TransactionAdapter
+    private lateinit var loadingDialog: LoadingDialog
     private val viewModel : ProfileViewModel by viewModelsFactory { ProfileViewModel(requireActivity().application)  }
 
     override fun onCreateView(
@@ -44,6 +47,7 @@ class ProfileFragment : Fragment() {
         requireActivity().window.setSoftInputMode((WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN))
 
         prefs = context?.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)!!
+        loadingDialog = LoadingDialog(requireActivity())
         prepareData()
 
         binding.btnBack.setOnClickListener{
@@ -80,21 +84,39 @@ class ProfileFragment : Fragment() {
         this.transactionAdapter = TransactionAdapter(listOf())
 
         viewModel.getBalance().observe(viewLifecycleOwner) {
-            if (it.status == HttpsURLConnection.HTTP_OK) {
-                this.transactionAdapter.apply {
-                    binding.apply {
-                        nameAccount.text = it.data?.get(0)?.name
-                        phoneAccount.text = it.data?.get(0)?.phone
-                    }
+            when(it.state) {
+                State.LOADING -> {
+                    loadingDialog.start("Go to Profile")
                 }
-            } else {
-                Toast.makeText(
-                    context,
-                    "Gagal memuat proses",
-                    Toast.LENGTH_SHORT
-                )
-                    .show()
+
+                State.SUCCESS -> {
+                    if (it.resource?.status == HttpsURLConnection.HTTP_OK) {
+                        this.transactionAdapter.apply {
+                            binding.apply {
+                                nameAccount.text = it.resource?.data?.get(0)?.name
+                                phoneAccount.text = it.resource?.data?.get(0)?.phone
+                            }
+                        }
+                    } else {
+                        Toast.makeText(
+                            context,
+                            it.message,
+                            Toast.LENGTH_SHORT
+                        )
+                            .show()
+                    }
+                    loadingDialog.dismiss()
+
+                }
+
+                State.ERROR -> {
+                    loadingDialog.stop()
+                    Toast.makeText(context, it.message, Toast.LENGTH_SHORT)
+                        .show()
+                }
             }
+
+
         }
     }
 }

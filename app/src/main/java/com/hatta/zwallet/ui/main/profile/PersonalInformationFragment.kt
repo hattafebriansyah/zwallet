@@ -15,6 +15,8 @@ import com.hatta.zwallet.adapter.TransactionAdapter
 import com.hatta.zwallet.databinding.FragmentPersonalInformationBinding
 import com.hatta.zwallet.ui.viewModelsFactory
 import com.hatta.zwallet.utils.PREFS_NAME
+import com.hatta.zwallet.utils.State
+import com.hatta.zwallet.widget.LoadingDialog
 import javax.net.ssl.HttpsURLConnection
 
 
@@ -23,6 +25,7 @@ class PersonalInformationFragment : Fragment() {
     private lateinit var binding: FragmentPersonalInformationBinding
     private lateinit var prefs : SharedPreferences
     private lateinit var transactionAdapter: TransactionAdapter
+    private lateinit var loadingDialog: LoadingDialog
     private val viewModel : ProfileViewModel by viewModelsFactory { ProfileViewModel(requireActivity().application)  }
 
     override fun onCreateView(
@@ -38,6 +41,8 @@ class PersonalInformationFragment : Fragment() {
         requireActivity().window.setSoftInputMode((WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN))
 
         prefs = context?.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)!!
+        loadingDialog = LoadingDialog(requireActivity())
+
         prepareData()
 
         binding.btnBack.setOnClickListener {
@@ -49,23 +54,41 @@ class PersonalInformationFragment : Fragment() {
         this.transactionAdapter = TransactionAdapter(listOf())
 
         viewModel.getBalance().observe(viewLifecycleOwner) {
-            if (it.status == HttpsURLConnection.HTTP_OK) {
-                this.transactionAdapter.apply {
-                    binding.apply {
-                        textFirstName.text = it.data?.get(0)?.name
-                        textLastName.text = it.data?.get(0)?.phone
-                        textVerifiedEmail.text = it.data?.get(0)?.phone
-                        textPhone.text = it.data?.get(0)?.phone
-                    }
+            when(it.state) {
+                State.LOADING -> {
+                    loadingDialog.start("Prosessing your request")
                 }
-            } else {
-                Toast.makeText(
-                    context,
-                    "Gagal memuat proses",
-                    Toast.LENGTH_SHORT
-                )
-                    .show()
+
+                State.SUCCESS -> {
+                    if (it.resource?.status == HttpsURLConnection.HTTP_OK) {
+                        this.transactionAdapter.apply {
+                            binding.apply {
+                                textFirstName.text = it.resource?.data?.get(0)?.name
+                                textLastName.text = it.resource?.data?.get(0)?.lastname
+                                textVerifiedEmail.text = it.resource?.data?.get(0)?.email
+                                textPhone.text = it.resource?.data?.get(0)?.phone
+                            }
+                        }
+                    } else {
+                        Toast.makeText(
+                            context,
+                            it.message,
+                            Toast.LENGTH_SHORT
+                        )
+                            .show()
+                    }
+                    loadingDialog.dismiss()
+
+                }
+
+                State.ERROR -> {
+                    loadingDialog.stop()
+                    Toast.makeText(context, it.message, Toast.LENGTH_SHORT)
+                        .show()
+                }
             }
+
+
         }
     }
 }

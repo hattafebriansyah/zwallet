@@ -8,12 +8,13 @@ import com.hatta.zwallet.data.api.ZWalletApi
 import com.hatta.zwallet.model.APIResponse
 import com.hatta.zwallet.model.Balance
 import com.hatta.zwallet.network.NetworkConfig
+import com.hatta.zwallet.utils.Resource
 
 class ProfileViewModel (app: Application): ViewModel(){
     private val apiClient : ZWalletApi =  NetworkConfig(app).buildApi()
     private var  dataSource = ZWalletDataSource(apiClient)
 
-    fun getBalance(): LiveData<APIResponse<List<Balance>>> {
+    fun getBalance(): LiveData<Resource<APIResponse<List<Balance>>?>> {
         return dataSource.getBalance()
     }
 }

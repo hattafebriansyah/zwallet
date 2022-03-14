@@ -25,6 +25,7 @@ import com.hatta.zwallet.ui.main.MainActivity
 import com.hatta.zwallet.ui.viewModelsFactory
 import com.hatta.zwallet.utils.*
 import com.hatta.zwallet.utils.Helper.formatPrice
+import com.hatta.zwallet.widget.LoadingDialog
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -36,6 +37,7 @@ class HomeFragment : Fragment() {
     private lateinit var transactionAdapter: TransactionAdapter
     private lateinit var binding: FragmentHomeBinding
     private lateinit var prefs : SharedPreferences
+    private lateinit var loadingDialog: LoadingDialog
     private val viewModel : HomeViewModel by viewModelsFactory { HomeViewModel(requireActivity().application)  }
 
     override fun onCreateView(
@@ -50,6 +52,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         prefs = context?.getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE)!!
+        loadingDialog = LoadingDialog(requireActivity())
         prepareData()
        // getProfile()
 
@@ -88,32 +91,70 @@ class HomeFragment : Fragment() {
         }
 
         viewModel.getBalance().observe(viewLifecycleOwner){
-            if (it.status == HttpsURLConnection.HTTP_OK){
-                this.transactionAdapter.apply {
-                    binding.apply {
-                        cardBalance.nameAccount.text = it.data?.get(0)?.name
-                        cardBalance.balance.formatPrice(it.data?.get(0)?.balance.toString())
-                        cardBalance.phoneAccount.text = it.data?.get(0)?.phone
-                    }
+            when(it.state){
+                State.LOADING ->{
+                    loadingDialog.start("Fetching your personal data")
                 }
-            }
-            else {
-                Toast.makeText(context, "Authentication failed: Wrong email/password", Toast.LENGTH_SHORT)
-                    .show()
+
+                State.SUCCESS ->{
+                    if (it.resource?.status == HttpsURLConnection.HTTP_OK){
+                        this.transactionAdapter.apply {
+                            binding.apply {
+                                cardBalance.nameAccount.text = it.resource.data?.get(0)?.name
+                                cardBalance.balance.formatPrice(it.resource.data?.get(0)?.balance.toString())
+                                cardBalance.phoneAccount.text = it.resource.data?.get(0)?.phone
+                            }
+                        }
+                    }
+                    else {
+                        Toast.makeText(context, it.message, Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                    loadingDialog.dismiss()
+                }
+                State.ERROR -> {
+                    loadingDialog.stop()
+                    Toast.makeText(context, it.message, Toast.LENGTH_SHORT)
+                        .show()
+                }
             }
         }
 
         viewModel.getInvoice().observe(viewLifecycleOwner){
-            if (it.status == HttpsURLConnection.HTTP_OK){
-               this.transactionAdapter.apply {
-               addData(it.data!!)
-                   notifyDataSetChanged()
-               }
+            when(it.state){
+                State.LOADING ->{
+                    binding.apply {
+                    loadingIndicator.visibility = View.VISIBLE
+                    recyclerTransaction.visibility = View.GONE
+                }
+                }
+                State.SUCCESS -> {
+                    binding.apply {
+                        loadingIndicator.visibility = View.GONE
+                        recyclerTransaction.visibility = View.VISIBLE
+                    }
+                    if (it.resource?.status == HttpsURLConnection.HTTP_OK) {
+                        this.transactionAdapter.apply {
+                            addData(it.resource.data!!)
+                            notifyDataSetChanged()
+                        }
+                    } else {
+                        Toast.makeText(context, it.resource?.message, Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                    loadingDialog.dismiss()
+
+
+                }
+                State.ERROR  ->{
+                    binding.apply {
+                        loadingIndicator.visibility = View.GONE
+                        recyclerTransaction.visibility = View.VISIBLE
+                    }
+                }
             }
-            else {
-                Toast.makeText(context, "Authentication failed: Wrong email/password", Toast.LENGTH_SHORT)
-                    .show()
-            }
+
+
         }
     }
 }

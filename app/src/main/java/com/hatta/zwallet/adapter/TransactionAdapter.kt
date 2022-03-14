@@ -18,7 +18,7 @@ import com.hatta.zwallet.utils.Helper.formatPrice
 import okhttp3.internal.http.RequestLine
 
 class TransactionAdapter (private var data: List<Invoice>): RecyclerView.Adapter <TransactionAdapter.TransactionAdapterHolder> (){
-    lateinit var contextAdapter : Context
+    private lateinit var contextAdapter : Context
 
     class TransactionAdapterHolder (view: View):RecyclerView.ViewHolder(view){
         private  val image: ShapeableImageView = view.findViewById(R.id.imageTransaction)
@@ -44,11 +44,11 @@ class TransactionAdapter (private var data: List<Invoice>): RecyclerView.Adapter
         val inflater = LayoutInflater.from(parent.context)
         this.contextAdapter = parent.context
 
-        val inflaterView: View = inflater.inflate(R.layout.item_transaction_home,parent,false)
-        return TransactionAdapterHolder(inflaterView)
+        val inflatedView: View = inflater.inflate(R.layout.item_transaction_home,parent,false)
+        return TransactionAdapterHolder(inflatedView)
     }
 
-    override fun onBindViewHolder(holder: TransactionAdapter.TransactionAdapterHolder, position: Int) {
+    override fun onBindViewHolder(holder: TransactionAdapterHolder, position: Int) {
        holder.bindData(this.data[position], contextAdapter,position)
     }
 

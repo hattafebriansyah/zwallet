@@ -7,35 +7,40 @@ import com.hatta.zwallet.model.Balance
 import com.hatta.zwallet.model.Invoice
 import com.hatta.zwallet.model.User
 import com.hatta.zwallet.model.request.LoginRequest
+import com.hatta.zwallet.utils.Resource
 import kotlinx.coroutines.Dispatchers
 import okhttp3.OkHttpClient
 
 class ZWalletDataSource (private val apiClient: ZWalletApi) {
-    fun login (email: String, password: String) = liveData<APIResponse<User>>(Dispatchers.IO) {
+    fun login (email: String, password: String) = liveData(Dispatchers.IO) {
+        emit(Resource.loading(null))
         try{
             val loginRequest = LoginRequest (email = email, password = password)
             val response = apiClient.login(loginRequest)
-            emit(response)
+            emit(Resource.success(response))
         } catch (e: Exception){
-            emit(APIResponse(400,e.localizedMessage, null))
+            emit (Resource.error(null,e.localizedMessage))
+            //emit(APIResponse(400,e.localizedMessage, null))
         }
     }
 
-    fun getInvoice() = liveData<APIResponse<List<Invoice>>>(Dispatchers.IO) {
+    fun getInvoice() = liveData(Dispatchers.IO) {
+        emit(Resource.loading(null))
         try {
             val response = apiClient.getInvoice()
-            emit(response)
+            emit(Resource.success(response))
         } catch (e: Exception){
-            emit(APIResponse(400,e.localizedMessage, null))
+            emit (Resource.error(null,e.localizedMessage))
         }
     }
 
-    fun getBalance() = liveData<APIResponse<List<Balance>>>(Dispatchers.IO) {
+    fun getBalance() = liveData(Dispatchers.IO) {
+        emit(Resource.loading(null))
         try {
             val response = apiClient.getBalance()
-            emit(response)
+            emit(Resource.success(response))
         } catch (e: Exception){
-            emit(APIResponse(400,e.localizedMessage, null))
+            emit (Resource.error(null,e.localizedMessage))
         }
     }
 
