@@ -57,6 +57,13 @@ class ProfileFragment : Fragment() {
         binding.btnPersonalInformation.setOnClickListener{
             Navigation.findNavController(view).navigate(R.id.profileActionPersonalInformation)
         }
+        binding.btnChangePassword.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.profileActionChangePassword)
+        }
+
+        binding.btnChangePin.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.profileActionChangePin)
+        }
 
         binding.btnLogout.setOnClickListener{
             AlertDialog.Builder(context)

@@ -54,7 +54,6 @@ class HomeFragment : Fragment() {
         prefs = context?.getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE)!!
         loadingDialog = LoadingDialog(requireActivity())
         prepareData()
-       // getProfile()
 
         binding.cardBalance.imageUser.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.homeActionProfile)
@@ -63,30 +62,18 @@ class HomeFragment : Fragment() {
         binding.cardBalance.textButtonTopUp.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.homeActionTopUp)
         }
+        binding.cardBalance.textButtonTransfer.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.homeActionFindReceiver)
+        }
     }
 
-    private fun getProfile() {
-        NetworkConfig(requireContext()).buildApi().getUserDetail()
-            .enqueue(object : Callback<APIResponse<UserDetail>> {
-                override fun onResponse(
-                    call: Call<APIResponse<UserDetail>>,
-                    response: Response<APIResponse<UserDetail>>
-                ) {
-                    val res = response.body()?.data
-                    //binding.cardBalance.nameAccount.text = response.body()?.data?.firstname.toString()
-                    binding.cardBalance.nameAccount.text = "${res?.firstname} "
-                }
 
-                override fun onFailure(call: Call<APIResponse<UserDetail>>, t: Throwable) {
-                    Toast.makeText(requireContext(), "failed", Toast.LENGTH_LONG).show()
-                }
-            })
-    }
 
     private fun prepareData(){
         this.transactionAdapter = TransactionAdapter(listOf())
         binding.recyclerTransaction.apply {
             val layoutManager  = LinearLayoutManager(context)
+            this.layoutManager = layoutManager
             adapter = transactionAdapter
         }
 

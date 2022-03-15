@@ -16,6 +16,9 @@
         <action
             android:id="@+id/homeActionTopUp"
             app:destination="@id/topupFragment" />
+        <action
+            android:id="@+id/homeActionFindReceiver"
+            app:destination="@id/findReceiverFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -28,6 +31,12 @@
         <action
             android:id="@+id/profileActionPersonalInformation"
             app:destination="@id/personalInformationFragment" />
+        <action
+            android:id="@+id/profileActionChangePin"
+            app:destination="@id/changePinFragment" />
+        <action
+            android:id="@+id/profileActionChangePassword"
+            app:destination="@id/changePasswordFragment" />
     </fragment>
     <fragment
         android:id="@+id/topupFragment"
@@ -47,4 +56,27 @@
             android:id="@+id/personalInformationActionProfile"
             app:destination="@id/profileFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/changePinFragment"
+        android:name="com.hatta.zwallet.ui.main.profile.ChangePinFragment"
+        android:label="fragment_change_pin"
+        tools:layout="@layout/fragment_change_pin" >
+        <action
+            android:id="@+id/changePinActionProfile"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.hatta.zwallet.ui.main.profile.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" >
+        <action
+            android:id="@+id/changePasswordActionProfile"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/findReceiverFragment"
+        android:name="com.hatta.zwallet.ui.main.transfer.FindReceiverFragment"
+        android:label="fragment_find_receiver"
+        tools:layout="@layout/fragment_find_receiver" />
 </navigation>

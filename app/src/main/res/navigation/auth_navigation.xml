@@ -17,6 +17,9 @@
         <action
             android:id="@+id/loginActionForgotPassword"
             app:destination="@id/forgotPasswordFragment" />
+        <action
+            android:id="@+id/loginActionCreatePin"
+            app:destination="@id/createPinFragment" />
     </fragment>
 
     <fragment
@@ -27,6 +30,9 @@
         <action
             android:id="@+id/registerActionLogin"
             app:destination="@id/loginFragment"/>
+        <action
+            android:id="@+id/registerActionOtp"
+            app:destination="@id/otpFragment" />
     </fragment>
 
     <fragment
@@ -44,4 +50,27 @@
         android:name="com.hatta.zwallet.ui.auth.forgot.ConfirmPasswordFragment"
         android:label="fragment_confirm_password"
         tools:layout="@layout/fragment_confirm_password" />
+    <fragment
+        android:id="@+id/otpFragment"
+        android:name="com.hatta.zwallet.ui.auth.otp.OtpFragment"
+        android:label="fragment_otp"
+        tools:layout="@layout/fragment_otp" />
+    <fragment
+        android:id="@+id/createPinFragment"
+        android:name="com.hatta.zwallet.ui.auth.createpin.CreatePinFragment"
+        android:label="fragment_create_pin"
+        tools:layout="@layout/fragment_create_pin" >
+        <action
+            android:id="@+id/createPinActionCreatePinSuccess"
+            app:destination="@id/createPinSuccessFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createPinSuccessFragment"
+        android:name="com.hatta.zwallet.ui.auth.createpin.CreatePinSuccessFragment"
+        android:label="fragment_create_pin_success"
+        tools:layout="@layout/fragment_create_pin_success" >
+        <action
+            android:id="@+id/createPinSuccessActionLogin"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>

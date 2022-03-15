@@ -15,9 +15,16 @@
     <string name="text_forgot_password_desc">Enter your Zwallet e-mail so we can send you a password reset link.</string>
     <string name="text_confirm">Confirm</string>
     <string name="text_reset_password">Reset Password</string>
-    <string name="hint_new_password">Create new password</string>
     <string name="hint_confirm_password">Confirm new password</string>
+    <string name="text_input_otp">Please input your OTP</string>
+    <string name="text_input_otp_desc">We have sent your OTP (One Time Password) code via Email</string>
+    <string name="text_create_pin">Create Security PIN</string>
+    <string name="text_create_pin_desc">Create a PIN that’s contain 6 digits number for security purpose in Zwallet.</string>
+    <string name="text_create_pin_success">PIN Successfully Created</string>
+    <string name="text_create_pin_success_desc">Your PIN was successfully created and you can now access all the features in Zwallet. Login to your new account and start exploring!</string>
     <string name="text_va_number">Virtual Account Number</string>
+    <string name="textFindReceiver">Find Receiver</string>
+    <string name="textTransfer">Transfer</string>
     <string name="topup_desc">We provide you virtual account number for top up via nearest ATM.</string>
     <string name="topup_howto">How to Top-Up</string>
     <string name="topup1">Go to the nearest ATM or you can use E-Banking.</string>
@@ -28,11 +35,17 @@
     <string name="topup6">Read the summary details.</string>
     <string name="topup7">Press transfer / top up.</string>
     <string name="topup8">You can see your money in Zwallet within 3 hours.</string>
-    <string name="textBtnPersonalInformation">Personal Infomration</string>
+    <string name="textBtnPersonalInformation">Personal Information</string>
     <string name="personal_information_desc">We got your personal information from the sign up process. If you want to make changes on your information, contact our support.</string>
     <string name="textFirstName">First Name</string>
     <string name="textLastName">Last Name</string>
     <string name="textVerifiedEmail">Verified Email</string>
     <string name="textNumberPhone">Number Phone</string>
-
+    <string name="textBtnEnterYourPIN">Enter Your PIN</string>
+    <string name="enter_your_pin_desc">Enter your 6 digits PIN for confirmation to continue transferring money.</string>
+    <string name="textBtnChangePassword">Change Password</string>
+    <string name="change_password_decs">You must enter your current password and then type your new password twice.</string>
+    <string name="hint_current_password">Current password</string>
+    <string name="hint_new_password">New password</string>
+    <string name="hint_repeat_password">Repeat password</string>
 </resources>

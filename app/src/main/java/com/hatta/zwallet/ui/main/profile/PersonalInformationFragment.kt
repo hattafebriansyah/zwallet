@@ -26,7 +26,7 @@ class PersonalInformationFragment : Fragment() {
     private lateinit var prefs : SharedPreferences
     private lateinit var transactionAdapter: TransactionAdapter
     private lateinit var loadingDialog: LoadingDialog
-    private val viewModel : ProfileViewModel by viewModelsFactory { ProfileViewModel(requireActivity().application)  }
+    private val viewModel : PersonalInformationViewModel by viewModelsFactory { PersonalInformationViewModel(requireActivity().application)  }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,7 +53,7 @@ class PersonalInformationFragment : Fragment() {
     private fun prepareData() {
         this.transactionAdapter = TransactionAdapter(listOf())
 
-        viewModel.getBalance().observe(viewLifecycleOwner) {
+        viewModel.getUserDetail().observe(viewLifecycleOwner) {
             when(it.state) {
                 State.LOADING -> {
                     loadingDialog.start("Prosessing your request")
@@ -63,10 +63,10 @@ class PersonalInformationFragment : Fragment() {
                     if (it.resource?.status == HttpsURLConnection.HTTP_OK) {
                         this.transactionAdapter.apply {
                             binding.apply {
-                                textFirstName.text = it.resource?.data?.get(0)?.name
-                                textLastName.text = it.resource?.data?.get(0)?.lastname
-                                textVerifiedEmail.text = it.resource?.data?.get(0)?.email
-                                textPhone.text = it.resource?.data?.get(0)?.phone
+                                textFirstName.text = it.resource?.data?.firstname
+                                textLastName.text = it.resource?.data?.lastname
+                                textVerifiedEmail.text = it.resource?.data?.email
+                                textPhone.text = it.resource?.data?.phone
                             }
                         }
                     } else {

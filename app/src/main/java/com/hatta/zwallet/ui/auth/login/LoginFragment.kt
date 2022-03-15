@@ -68,36 +68,39 @@ class LoginFragment : Fragment() {
                                putString(KEY_USER_REFRESH_TOKEN, it.resource.data?.refreshToken)
                                apply()
                            }
-
-                           Handler().postDelayed({
-                               val intent = Intent(activity, MainActivity::class.java)
-                               startActivity(intent)
-                               activity?.finish()
-                           }, 1000)
+                           if(it.resource.data?.hasPin!!) {
+                               Handler().postDelayed({
+                                   val intent = Intent(activity, MainActivity::class.java)
+                                   startActivity(intent)
+                                   activity?.finish()
+                               }, 1000)
+                           }
+                           else{
+                               Navigation.findNavController(view)
+                                   .navigate(R.id.loginActionCreatePin)
+                           }
                        }
                        else {
                            Toast.makeText(context, it.resource?.message, Toast.LENGTH_SHORT)
                                .show()
                        }
                    }
-
                    State.ERROR ->{
                        loadingDialog.stop()
                        Toast.makeText(context, it.message, Toast.LENGTH_SHORT)
                            .show()
-
                    }
                }
             }
 
 
-            binding.textGotoLoginLink.setOnClickListener {
-                Navigation.findNavController(view).navigate(R.id.loginActionRegister)
-            }
+        }
+        binding.textGotoLoginLink.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.loginActionRegister)
+        }
 
-            binding.textForgotPassword.setOnClickListener {
-                Navigation.findNavController(view).navigate(R.id.loginActionForgotPassword)
-            }
+        binding.textForgotPassword.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.loginActionForgotPassword)
         }
     }
 }

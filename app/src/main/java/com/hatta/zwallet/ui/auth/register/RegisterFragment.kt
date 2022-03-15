@@ -69,9 +69,10 @@ class RegisterFragment : Fragment() {
                             val res = response.body()!!.message
                             Toast.makeText(context, res, Toast.LENGTH_SHORT).show()
                             Handler().postDelayed({
-                                val intent = Intent(activity, AuthActivity::class.java)
-                                startActivity(intent)
-                                activity?.finish()
+                                Navigation.findNavController(view).navigate(R.id.registerActionOtp)
+//                                val intent = Intent(activity, AuthActivity::class.java)
+//                                startActivity(intent)
+//                                activity?.finish()
                             }, 1000)
                         }
                     }
