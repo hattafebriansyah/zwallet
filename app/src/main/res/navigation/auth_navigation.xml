@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.hatta.zwallet.ui.auth.login.LoginFragment"
+        android:name="com.hatta.zwallet.ui.layout.auth.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <action
@@ -24,7 +24,7 @@
 
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.hatta.zwallet.ui.auth.register.RegisterFragment"
+        android:name="com.hatta.zwallet.ui.layout.auth.register.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register">
         <action
@@ -37,7 +37,7 @@
 
     <fragment
         android:id="@+id/forgotPasswordFragment"
-        android:name="com.hatta.zwallet.ui.auth.forgot.ForgotPasswordFragment"
+        android:name="com.hatta.zwallet.ui.layout.auth.forgot.ForgotPasswordFragment"
         android:label="fragment_forgot_password"
         tools:layout="@layout/fragment_forgot_password" >
         <action
@@ -47,17 +47,17 @@
 
     <fragment
         android:id="@+id/confirmPasswordFragment"
-        android:name="com.hatta.zwallet.ui.auth.forgot.ConfirmPasswordFragment"
+        android:name="com.hatta.zwallet.ui.layout.auth.forgot.ConfirmPasswordFragment"
         android:label="fragment_confirm_password"
         tools:layout="@layout/fragment_confirm_password" />
     <fragment
         android:id="@+id/otpFragment"
-        android:name="com.hatta.zwallet.ui.auth.otp.OtpFragment"
+        android:name="com.hatta.zwallet.ui.layout.auth.otp.OtpFragment"
         android:label="fragment_otp"
         tools:layout="@layout/fragment_otp" />
     <fragment
         android:id="@+id/createPinFragment"
-        android:name="com.hatta.zwallet.ui.auth.createpin.CreatePinFragment"
+        android:name="com.hatta.zwallet.ui.layout.auth.createpin.CreatePinFragment"
         android:label="fragment_create_pin"
         tools:layout="@layout/fragment_create_pin" >
         <action
@@ -66,7 +66,7 @@
     </fragment>
     <fragment
         android:id="@+id/createPinSuccessFragment"
-        android:name="com.hatta.zwallet.ui.auth.createpin.CreatePinSuccessFragment"
+        android:name="com.hatta.zwallet.ui.layout.auth.createpin.CreatePinSuccessFragment"
         android:label="fragment_create_pin_success"
         tools:layout="@layout/fragment_create_pin_success" >
         <action

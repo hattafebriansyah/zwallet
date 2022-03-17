@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.hatta.zwallet.ui.main.home.HomeFragment"
+        android:name="com.hatta.zwallet.ui.layout.main.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.hatta.zwallet.ui.main.profile.ProfileFragment"
+        android:name="com.hatta.zwallet.ui.layout.main.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/topupFragment"
-        android:name="com.hatta.zwallet.ui.main.topup.TopupFragment"
+        android:name="com.hatta.zwallet.ui.layout.main.topup.TopupFragment"
         android:label="fragment_topup"
         tools:layout="@layout/fragment_topup" >
         <action
@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/personalInformationFragment"
-        android:name="com.hatta.zwallet.ui.main.profile.PersonalInformationFragment"
+        android:name="com.hatta.zwallet.ui.layout.main.profile.PersonalInformationFragment"
         android:label="fragment_personal_information"
         tools:layout="@layout/fragment_personal_information" >
         <action
@@ -58,7 +58,7 @@
     </fragment>
     <fragment
         android:id="@+id/changePinFragment"
-        android:name="com.hatta.zwallet.ui.main.profile.ChangePinFragment"
+        android:name="com.hatta.zwallet.ui.layout.main.profile.ChangePinFragment"
         android:label="fragment_change_pin"
         tools:layout="@layout/fragment_change_pin" >
         <action
@@ -67,7 +67,7 @@
     </fragment>
     <fragment
         android:id="@+id/changePasswordFragment"
-        android:name="com.hatta.zwallet.ui.main.profile.ChangePasswordFragment"
+        android:name="com.hatta.zwallet.ui.layout.main.profile.ChangePasswordFragment"
         android:label="fragment_change_password"
         tools:layout="@layout/fragment_change_password" >
         <action
@@ -76,7 +76,7 @@
     </fragment>
     <fragment
         android:id="@+id/findReceiverFragment"
-        android:name="com.hatta.zwallet.ui.main.transfer.FindReceiverFragment"
+        android:name="com.hatta.zwallet.ui.layout.main.transfer.FindReceiverFragment"
         android:label="fragment_find_receiver"
         tools:layout="@layout/fragment_find_receiver" />
 </navigation>

@@ -24,15 +24,15 @@ class NetworkConfig (val context: Context?){
            .addInterceptor(logging)
 
        if (!token.isNullOrEmpty()) {
-           client.addInterceptor(TokenInterceptor(token))
+           client.addInterceptor(TokenInterceptor{
+               preferences?.getString(KEY_USER_TOKEN,"").toString()
+           })
        }
        if (authenticator != null){
            client.authenticator(authenticator)
        }
        return client.build()
     }
-
-
 
     private fun getService(): ZWalletApi {
         return Retrofit.Builder()

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/transfer_navigation"
+    app:startDestination="@id/findReceiverFragment">
+
+    <fragment
+        android:id="@+id/findReceiverFragment"
+        android:name="com.hatta.zwallet.ui.layout.main.transfer.FindReceiverFragment"
+        android:label="fragment_find_receiver"
+        tools:layout="@layout/fragment_find_receiver" >
+        <action
+            android:id="@+id/action_findReceiverFragment_to_transferFragment"
+            app:destination="@id/transferFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transferFragment"
+        android:name="com.hatta.zwallet.ui.layout.main.transfer.TransferFragment"
+        android:label="fragment_transfer"
+        tools:layout="@layout/fragment_transfer" >
+        <action
+            android:id="@+id/action_transferFragment_to_transferConfirmationFragment"
+            app:destination="@id/transferConfirmationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transferConfirmationFragment"
+        android:name="com.hatta.zwallet.ui.layout.main.transfer.TransferConfirmationFragment"
+        android:label="fragment_transfer_confirmation"
+        tools:layout="@layout/fragment_transfer_confirmation" />
+</navigation>

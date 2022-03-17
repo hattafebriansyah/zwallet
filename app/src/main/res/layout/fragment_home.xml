@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/backgroundColor"
-    tools:context=".ui.main.home.HomeFragment">
+    tools:context=".ui.layout.main.home.HomeFragment">
 
     <!--card balance-->
     <include

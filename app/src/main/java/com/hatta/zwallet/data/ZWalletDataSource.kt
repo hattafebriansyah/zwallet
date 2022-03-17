@@ -2,16 +2,13 @@ package com.hatta.zwallet.data
 
 import androidx.lifecycle.liveData
 import com.hatta.zwallet.data.api.ZWalletApi
-import com.hatta.zwallet.model.APIResponse
-import com.hatta.zwallet.model.Balance
-import com.hatta.zwallet.model.Invoice
-import com.hatta.zwallet.model.User
 import com.hatta.zwallet.model.request.LoginRequest
 import com.hatta.zwallet.utils.Resource
 import kotlinx.coroutines.Dispatchers
-import okhttp3.OkHttpClient
+import javax.inject.Inject
 
-class ZWalletDataSource (private val apiClient: ZWalletApi) {
+
+class ZWalletDataSource @Inject constructor(private val apiClient: ZWalletApi) {
     fun login (email: String, password: String) = liveData(Dispatchers.IO) {
         emit(Resource.loading(null))
         try{

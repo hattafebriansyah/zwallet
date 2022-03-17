@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.layout.main.transfer.TransferConfirmationFragment"
+    android:background="@color/backgroundColor"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:drawableStart="@drawable/ic_baseline_arrow_back_24"
+            android:textColor="@color/darkGreyColor"
+            android:layout_marginHorizontal="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/textButtonTopUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="15dp"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:text="Confirmation"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/btnBack"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/textTransferTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="18sp"
+            android:layout_marginHorizontal="16dp"
+            android:textColor="@color/black"
+            android:text="@string/text_transfer_to"
+            app:layout_constraintTop_toBottomOf="@id/btnBack"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <include
+            android:id="@+id/transferToInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/item_contact_transfer"
+            android:layout_marginTop="20dp"
+            android:paddingTop="20dp"
+            android:layout_marginHorizontal="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textTransferTo"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+        <TextView
+            android:id="@+id/textDetails"
+            android:text="@string/text_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="18sp"
+            android:layout_marginHorizontal="16dp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/transferToInfo"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <LinearLayout
+            android:id="@+id/amountConfirmation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/textDetails"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/backgound_topup"
+            android:layout_margin="15dp"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/amount"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/darkGreyColor"/>
+            <TextView
+                android:id="@+id/amountValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rp 00.00"
+                android:textStyle="bold"
+                android:layout_marginVertical="5dp"
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/balanceConfirmation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/amountConfirmation"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/backgound_topup"
+            android:layout_margin="15dp"
+            android:padding="15dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/balance"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/darkGreyColor"/>
+            <TextView
+                android:id="@+id/balanceValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rp 00.00"
+                android:textStyle="bold"
+                android:layout_marginVertical="5dp"
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dateConfirmation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/balanceConfirmation"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/backgound_topup"
+            android:layout_margin="15dp"
+            android:padding="15dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/darkGreyColor"/>
+            <TextView
+                android:id="@+id/dateValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 Januari 2000 , 01:01"
+                android:textStyle="bold"
+                android:layout_marginVertical="5dp"
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/notesConfirmation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/dateConfirmation"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/backgound_topup"
+            android:layout_margin="15dp"
+            android:padding="15dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/notes"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/darkGreyColor"/>
+            <TextView
+                android:id="@+id/notesValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Buy Food "
+                android:textStyle="bold"
+                android:layout_marginVertical="5dp"
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_continue_to_new_pin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/notesConfirmation"
+            app:layout_constraintStart_toStartOf="parent"
+            android:paddingVertical="12dp"
+            android:background="@drawable/background_button_auth_active"
+            android:textAllCaps="false"
+            android:text="@string/text_continue"
+            android:textColor="@color/white"
+            android:layout_marginHorizontal="20dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:fontFamily="@font/nunito_font_medium"
+            android:layout_marginVertical="50dp"/>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

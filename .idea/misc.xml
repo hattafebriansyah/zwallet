@@ -42,19 +42,29 @@
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_find_receiver.xml" value="0.15155440414507773" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_forgot_password.xml" value="0.209375" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_home.xml" value="0.2291904218928164" />
+        <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_item_contact_transfer.xml" value="0.1631912964641886" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_login.xml" value="0.3219954648526077" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_otp.xml" value="0.25" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_personal_information.xml" value="0.209375" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_register.xml" value="0.4249471458773784" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_topup.xml" value="0.19001610305958133" />
+        <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_transaction_result.xml" value="0.33" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_transfer.xml" value="0.21" />
+        <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_transfer_confirmation.xml" value="0.25" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/item_balance_home.xml" value="0.5" />
+        <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/item_contact_transfer.xml" value="0.1631912964641886" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/item_transaction_home.xml" value="0.33" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/loading_dialog.xml" value="0.33" />
+        <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/mipmap-anydpi-v26/logoTransfer.xml" value="0.1595" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/mipmap-anydpi-v26/logoTransfer_round.xml" value="0.163" />
       </map>
     </option>
+  </component>
+  <component name="EntryPointsManager">
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="dagger.Module" />
+    </list>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

@@ -25,6 +25,13 @@
     <string name="text_va_number">Virtual Account Number</string>
     <string name="textFindReceiver">Find Receiver</string>
     <string name="textTransfer">Transfer</string>
+    <string name="text_transfer_to">Transfer to</string>
+    <string name="text_details">Details</string>
+    <string name="amount">Amount</string>
+    <string name="balance">Balance left</string>
+    <string name="date">Date &amp; time</string>
+    <string name="notes">Notes</string>
+    <string name="text_continue">Continue</string>
     <string name="topup_desc">We provide you virtual account number for top up via nearest ATM.</string>
     <string name="topup_howto">How to Top-Up</string>
     <string name="topup1">Go to the nearest ATM or you can use E-Banking.</string>
@@ -48,4 +55,5 @@
     <string name="hint_current_password">Current password</string>
     <string name="hint_new_password">New password</string>
     <string name="hint_repeat_password">Repeat password</string>
+
 </resources>
