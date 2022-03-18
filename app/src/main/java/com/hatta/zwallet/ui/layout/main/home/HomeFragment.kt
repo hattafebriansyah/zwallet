@@ -59,7 +59,6 @@ class HomeFragment : Fragment() {
     }
 
 
-
     private fun prepareData(){
         this.transactionAdapter = TransactionAdapter(listOf())
         binding.recyclerTransaction.apply {

@@ -11,8 +11,8 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.hatta.zwallet.R
 import com.hatta.zwallet.ui.adapter.ContactAdapter
-import com.hatta.zwallet.data.Contact
 import com.hatta.zwallet.databinding.FragmentFindReceiverBinding
 import com.hatta.zwallet.utils.PREFS_NAME
 import com.hatta.zwallet.utils.State
@@ -22,12 +22,11 @@ import javax.net.ssl.HttpsURLConnection
 
 @AndroidEntryPoint
 class FindReceiverFragment : Fragment() {
-    private val transactionData = mutableListOf<Contact>()
     private lateinit var contactAdapter: ContactAdapter
     private lateinit var binding: FragmentFindReceiverBinding
-    private lateinit var prefs : SharedPreferences
+    private lateinit var prefs: SharedPreferences
     private lateinit var loadingDialog: LoadingDialog
-    private val viewModel : FindReceiverViewModel by activityViewModels()
+    private val viewModel: TransferViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,28 +39,31 @@ class FindReceiverFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        this.contactAdapter = ContactAdapter(listOf()) { contact, _ ->
+            viewModel.setSelectedContact(contact)
+            Navigation.findNavController(view)
+                .navigate(R.id.action_findReceiverFragment_to_transferFragment2)        }
+
         prefs = context?.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)!!
         loadingDialog = LoadingDialog(requireActivity())
+
         prepareData()
 
         binding.btnBack.setOnClickListener {
             Navigation.findNavController(view).popBackStack()
         }
-
-
     }
 
-    private fun prepareData(){
-        this.contactAdapter = ContactAdapter(listOf())
+    private fun prepareData() {
         binding.recyclerTransactionContact.apply {
-            val layoutManager  = LinearLayoutManager(context)
+            val layoutManager = LinearLayoutManager(context)
             this.layoutManager = layoutManager
             adapter = contactAdapter
         }
 
-        viewModel.getContactUser().observe(viewLifecycleOwner){
-            when(it.state){
-                State.LOADING ->{
+        viewModel.getContactUser().observe(viewLifecycleOwner) {
+            when (it.state) {
+                State.LOADING -> {
                     binding.apply {
                         loadingIndicator.visibility = View.VISIBLE
                         recyclerTransactionContact.visibility = View.GONE
@@ -82,17 +84,14 @@ class FindReceiverFragment : Fragment() {
                             .show()
                     }
                     loadingDialog.dismiss()
-
-
                 }
-                State.ERROR  ->{
+                State.ERROR -> {
                     binding.apply {
                         loadingIndicator.visibility = View.GONE
                         recyclerTransactionContact.visibility = View.VISIBLE
                     }
                 }
             }
-
 
         }
     }

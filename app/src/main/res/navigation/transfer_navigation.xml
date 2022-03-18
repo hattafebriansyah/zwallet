@@ -11,7 +11,7 @@
         android:label="fragment_find_receiver"
         tools:layout="@layout/fragment_find_receiver" >
         <action
-            android:id="@+id/action_findReceiverFragment_to_transferFragment"
+            android:id="@+id/findReceiverActionTransfer"
             app:destination="@id/transferFragment" />
     </fragment>
     <fragment
@@ -20,12 +20,30 @@
         android:label="fragment_transfer"
         tools:layout="@layout/fragment_transfer" >
         <action
-            android:id="@+id/action_transferFragment_to_transferConfirmationFragment"
+            android:id="@+id/transferFragmentActionTransferConfirmation"
             app:destination="@id/transferConfirmationFragment" />
     </fragment>
     <fragment
         android:id="@+id/transferConfirmationFragment"
         android:name="com.hatta.zwallet.ui.layout.main.transfer.TransferConfirmationFragment"
         android:label="fragment_transfer_confirmation"
-        tools:layout="@layout/fragment_transfer_confirmation" />
+        tools:layout="@layout/fragment_transfer_confirmation" >
+        <action
+            android:id="@+id/transferConfirmationActionTransferConfirmation"
+            app:destination="@id/transferConfirmationPinFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transferConfirmationPinFragment"
+        android:name="com.hatta.zwallet.ui.layout.main.transfer.TransferConfirmationPinFragment"
+        android:label="fragment_transfer_confirmation_pin"
+        tools:layout="@layout/fragment_transfer_confirmation_pin" >
+        <action
+            android:id="@+id/transferConfirmationPinActionTransactionResult"
+            app:destination="@id/transactionResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transactionResultFragment"
+        android:name="com.hatta.zwallet.ui.layout.main.transfer.TransactionResultFragment"
+        android:label="fragment_transaction_result"
+        tools:layout="@layout/fragment_transaction_result" />
 </navigation>

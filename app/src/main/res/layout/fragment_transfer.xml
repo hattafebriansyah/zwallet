@@ -45,7 +45,7 @@
         android:padding="15dp">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/imageAccount"
+            android:id="@+id/imageContact"
             android:layout_width="54dp"
             android:layout_height="54dp"
             android:scaleType="centerCrop"
@@ -103,9 +103,10 @@
         android:paddingVertical="15dp"
         android:textSize="40sp"
         android:hint="Rp 0.00"
+        android:maxLength="12"
         android:layout_gravity="center"
-        android:textColor="@color/darkGreyColor"
-        android:drawableTint="@color/primaryColor"
+        android:textColor="@color/primaryColor"
+        android:textColorHint="@color/darkGreyColor"
         android:gravity="center"
         android:background="@android:color/transparent"
         app:layout_constraintTop_toBottomOf="@id/textAmountAvailable"
@@ -122,8 +123,8 @@
         android:textSize="20sp"
         android:hint="Add some notes"
         android:layout_gravity="center"
-        android:textColor="@color/darkGreyColor"
-        android:drawableTint="@color/primaryColor"
+        android:textColor="@color/primaryColor"
+        android:textColorHint="@color/darkGreyColor"
         android:drawableStart="@drawable/ic_baseline_edit_24"
         android:gravity="center"
         app:layout_constraintTop_toBottomOf="@id/amountTransfer"
