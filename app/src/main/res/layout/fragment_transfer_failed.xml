@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.layout.main.transfer.TransferConfirmationFragment"
     android:background="@color/backgroundColor"
-    >
+    tools:context=".ui.layout.main.transfer.TransferFailedFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,55 +13,27 @@
         android:paddingBottom="20dp">
 
         <TextView
-            android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:textSize="20sp"
-            android:layout_marginTop="10dp"
-            android:drawableStart="@drawable/ic_baseline_arrow_back_24"
-            android:textColor="@color/darkGreyColor"
+            android:id="@+id/failedLogo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:drawableTop="@drawable/ic_baseline_cancel_24"
             android:layout_marginHorizontal="5dp"
+            android:layout_marginVertical="30dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
-
         <TextView
-            android:id="@+id/textButtonTopUp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingVertical="15dp"
-            android:textSize="20sp"
-            android:layout_marginTop="10dp"
-            android:text="Confirmation"
-            android:layout_gravity="center"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@id/btnBack"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-        <TextView
-            android:id="@+id/textTransferTo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="20dp"
-            android:textSize="18sp"
-            android:layout_marginHorizontal="16dp"
-            android:textColor="@color/black"
-            android:text="@string/text_transfer_to"
-            app:layout_constraintTop_toBottomOf="@id/btnBack"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-        <include
-            android:id="@+id/transferToInfo"
+            android:id="@+id/resultDesc"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/item_contact_transfer"
-            android:layout_marginTop="20dp"
-            android:paddingTop="20dp"
-            android:layout_marginHorizontal="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textTransferTo"
-            app:layout_constraintStart_toStartOf="parent"/>
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:text="We can’t transfer your money at the moment, we recommend you to check your internet connection and try again."
+            android:layout_marginHorizontal="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/failedLogo"/>
 
 
         <TextView
@@ -76,7 +46,7 @@
             android:textSize="18sp"
             android:layout_marginHorizontal="16dp"
             android:textColor="@color/black"
-            app:layout_constraintTop_toBottomOf="@id/transferToInfo"
+            app:layout_constraintTop_toBottomOf="@id/resultDesc"
             app:layout_constraintStart_toStartOf="parent"/>
 
         <LinearLayout
@@ -95,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/amount"
                 android:gravity="center"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:textColor="@color/darkGreyColor"/>
             <TextView
                 android:id="@+id/amountValue"
@@ -104,7 +74,7 @@
                 android:text="Rp 00.00"
                 android:textStyle="bold"
                 android:layout_marginVertical="5dp"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -124,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/balance"
                 android:gravity="center"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:textColor="@color/darkGreyColor"/>
             <TextView
                 android:id="@+id/balanceValue"
@@ -133,7 +103,7 @@
                 android:text="Rp 00.00"
                 android:textStyle="bold"
                 android:layout_marginVertical="5dp"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textColor="@color/black"/>
         </LinearLayout>
 
@@ -152,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/date"
                 android:gravity="center"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:textColor="@color/darkGreyColor"/>
             <TextView
                 android:id="@+id/dateValue"
@@ -161,7 +131,7 @@
                 android:text="1 Januari 2000 , 01:01"
                 android:textStyle="bold"
                 android:layout_marginVertical="5dp"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textColor="@color/black"/>
         </LinearLayout>
 
@@ -180,7 +150,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/notes"
                 android:gravity="center"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:textColor="@color/darkGreyColor"/>
             <TextView
                 android:id="@+id/notesValue"
@@ -189,31 +159,55 @@
                 android:text="Buy Food "
                 android:textStyle="bold"
                 android:layout_marginVertical="5dp"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textColor="@color/black"/>
         </LinearLayout>
 
 
+        <TextView
+            android:id="@+id/textTransferTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="18sp"
+            android:layout_marginHorizontal="16dp"
+            android:textColor="@color/black"
+            android:text="@string/text_transfer_to"
+            app:layout_constraintTop_toBottomOf="@id/notesConfirmation"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <include
+            android:id="@+id/transferToInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/item_contact_transfer"
+            android:layout_marginTop="20dp"
+            android:paddingTop="20dp"
+            android:layout_marginHorizontal="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textTransferTo"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnContinue"
+            android:id="@+id/btnTryAgain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/notesConfirmation"
+            app:layout_constraintTop_toBottomOf="@id/transferToInfo"
             app:layout_constraintStart_toStartOf="parent"
             android:paddingVertical="12dp"
             android:background="@drawable/background_button_auth_active"
             android:textAllCaps="false"
-            android:text="@string/text_continue"
+            android:text="Try Again"
             android:textColor="@color/white"
             android:layout_marginHorizontal="20dp"
             android:textStyle="bold"
             android:textSize="20sp"
             android:fontFamily="@font/nunito_font_medium"
             android:layout_marginVertical="50dp"/>
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

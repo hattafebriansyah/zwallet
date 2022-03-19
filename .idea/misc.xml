@@ -18,6 +18,10 @@
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/background_input_change_password.xml" value="0.159" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/background_item_transaction_home.xml" value="0.214" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/background_search.xml" value="0.1745" />
+        <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1375" />
+        <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1375" />
+        <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/ic_baseline_arrow_upward_24.xml" value="0.1375" />
+        <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/ic_baseline_block_24.xml" value="0.1375" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/ic_baseline_check_circle_24.xml" value="0.16" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.1795" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.126" />
@@ -53,6 +57,8 @@
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_transfer.xml" value="0.21" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_transfer_confirmation.xml" value="0.25" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_transfer_confirmation_pin.xml" value="0.11201368106028217" />
+        <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_transfer_failed.xml" value="0.2997512437810945" />
+        <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/fragment_transfer_success.xml" value="0.9" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/item_balance_home.xml" value="0.5" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/item_contact_transfer.xml" value="0.1631912964641886" />
         <entry key="..\:/Users/hatta_febriansyah/AndroidStudioProjects/ZWallet/app/src/main/res/layout/item_transaction_home.xml" value="0.33" />

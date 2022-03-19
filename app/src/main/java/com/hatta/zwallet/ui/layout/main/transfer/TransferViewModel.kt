@@ -4,11 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.hatta.zwallet.data.ZWalletDataSource
-import com.hatta.zwallet.model.APIResponse
-import com.hatta.zwallet.model.ContactUser
+import com.hatta.zwallet.model.*
+import com.hatta.zwallet.model.request.TransferRequest
 import com.hatta.zwallet.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
-import id.grinaldi.zwallet.model.request.TransferRequest
 import javax.inject.Inject
 
 @HiltViewModel
@@ -35,6 +34,14 @@ class TransferViewModel @Inject constructor(private var  dataSource : ZWalletDat
 
     fun getTransferParameter(): MutableLiveData<TransferRequest> {
         return transfer
+    }
+
+    fun transfer(data: TransferRequest, pin: String): LiveData<Resource<APIResponseTransfer<Transfer>?>> {
+        return dataSource.transfer(data, pin)
+    }
+
+    fun getBalance() : LiveData<Resource<APIResponse<List<Balance>>?>> {
+        return dataSource.getBalance()
     }
 
 }

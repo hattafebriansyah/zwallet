@@ -3,6 +3,7 @@ package com.hatta.zwallet.data
 import androidx.lifecycle.liveData
 import com.hatta.zwallet.data.api.ZWalletApi
 import com.hatta.zwallet.model.request.LoginRequest
+import com.hatta.zwallet.model.request.TransferRequest
 import com.hatta.zwallet.utils.Resource
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
@@ -55,6 +56,16 @@ class ZWalletDataSource @Inject constructor(private val apiClient: ZWalletApi) {
         emit(Resource.loading(null))
         try {
             val response = apiClient.getContactUser()
+            emit(Resource.success(response))
+        } catch (e: Exception){
+            emit (Resource.error(null,e.localizedMessage))
+        }
+    }
+
+    fun transfer(data: TransferRequest, pin: String) = liveData(Dispatchers.IO) {
+        emit(Resource.loading(null))
+        try {
+            val response = apiClient.transfer(data,pin)
             emit(Resource.success(response))
         } catch (e: Exception){
             emit (Resource.error(null,e.localizedMessage))

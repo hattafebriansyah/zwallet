@@ -102,17 +102,29 @@
             app:destination="@id/transferConfirmationPinFragment2" />
     </fragment>
     <fragment
-        android:id="@+id/transactionResultFragment2"
-        android:name="com.hatta.zwallet.ui.layout.main.transfer.TransactionResultFragment"
-        android:label="fragment_transaction_result"
-        tools:layout="@layout/fragment_transaction_result" />
-    <fragment
         android:id="@+id/transferConfirmationPinFragment2"
         android:name="com.hatta.zwallet.ui.layout.main.transfer.TransferConfirmationPinFragment"
         android:label="fragment_transfer_confirmation_pin"
         tools:layout="@layout/fragment_transfer_confirmation_pin" >
         <action
-            android:id="@+id/action_transferConfirmationPinFragment2_to_transactionResultFragment2"
-            app:destination="@id/transactionResultFragment2" />
+            android:id="@+id/action_transferConfirmationPinFragment2_to_transferSuccessFragment"
+            app:destination="@id/transferSuccessFragment" />
+        <action
+            android:id="@+id/action_transferConfirmationPinFragment2_to_transferFailedFragment"
+            app:destination="@id/transferFailedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transferSuccessFragment"
+        android:name="com.hatta.zwallet.ui.layout.main.transfer.TransferSuccessFragment"
+        android:label="fragment_transfer_success"
+        tools:layout="@layout/fragment_transfer_success" />
+    <fragment
+        android:id="@+id/transferFailedFragment"
+        android:name="com.hatta.zwallet.ui.layout.main.transfer.TransferFailedFragment"
+        android:label="fragment_transfer_failed"
+        tools:layout="@layout/fragment_transfer_failed" >
+        <action
+            android:id="@+id/action_transferFailedFragment_to_findReceiverFragment"
+            app:destination="@id/findReceiverFragment" />
     </fragment>
 </navigation>

@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/textBtnchangePin"
+        android:id="@+id/textBtnConfirmPin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingVertical="15dp"
@@ -133,7 +133,7 @@
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnChangePin"
+        android:id="@+id/btnTransfer"
         android:text="Transfer Now"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

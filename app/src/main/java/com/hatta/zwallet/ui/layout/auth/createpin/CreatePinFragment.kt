@@ -95,7 +95,6 @@ class CreatePinFragment : Fragment() {
                 override fun afterTextChanged(s: Editable) {
                     if (i == 5 && pin[i].text.toString().isNotEmpty()) {
                         pin[i].clearFocus()
-
                         //Clears focus when you have entered the last digit of the pin.
                     } else if (pin[i].text.toString().isNotEmpty()) {
                         pin[i + 1].requestFocus() //focuses on the next edittext after a digit is entered.

@@ -11,9 +11,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.hatta.zwallet.R
 import com.hatta.zwallet.databinding.FragmentTransferBinding
+import com.hatta.zwallet.model.request.TransferRequest
 import com.hatta.zwallet.utils.BASE_URL
 import dagger.hilt.android.AndroidEntryPoint
-import id.grinaldi.zwallet.model.request.TransferRequest
 
 @AndroidEntryPoint
 class TransferFragment : Fragment() {
@@ -31,14 +31,14 @@ class TransferFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        var id: String?=null
 
         binding.buttonContinueConfirmation.setOnClickListener {
             viewModel.setTransferParameter(TransferRequest(
-                "",
+                id!!,
                 binding.amountTransfer.text.toString().toInt(),
                 binding.noteTransfer.text.toString()
             ))
-
             Navigation.findNavController(view).navigate(R.id.action_transferFragment2_to_transferConfirmationFragment2)
         }
 
@@ -46,9 +46,7 @@ class TransferFragment : Fragment() {
             Navigation.findNavController(view).popBackStack()
         }
 
-
         viewModel.getSelectedContact().observe(viewLifecycleOwner) {
-        var id: String?=null
             id = it?.id.toString()
             binding.apply {
                 nameContact.text = "${it?.name}"
@@ -57,7 +55,7 @@ class TransferFragment : Fragment() {
                     .load(BASE_URL + it?.image)
                     .apply(
                         RequestOptions.circleCropTransform()
-                            .placeholder(R.drawable.ic_baseline_remove_red_eye_24)
+                            .placeholder(R.drawable.ic_baseline_person_24)
                     )
                     .into(imageContact)
             }

@@ -1,4 +1,4 @@
-package id.grinaldi.zwallet.model.request
+package com.hatta.zwallet.model.request
 
 data class TransferRequest(
     var receiver: String,

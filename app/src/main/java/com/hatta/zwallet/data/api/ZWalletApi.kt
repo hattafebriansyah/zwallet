@@ -4,10 +4,7 @@ package com.hatta.zwallet.data.api
 import com.hatta.zwallet.model.*
 import com.hatta.zwallet.model.request.*
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.PATCH
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ZWalletApi {
     @POST("auth/login")
@@ -36,5 +33,9 @@ interface ZWalletApi {
 
     @PATCH("/user/changePassword")
     fun changePassword(@Body request: ChangePasswordRequest): Call <APIResponse<User>>
+
+    @POST("tranfer/newTranfer")
+    suspend fun transfer(@Body Transfer: TransferRequest, @Header("x-access-PIN") pin:String):APIResponseTransfer<Transfer>
+
 
 }
