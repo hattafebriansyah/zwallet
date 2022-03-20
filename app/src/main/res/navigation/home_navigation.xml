@@ -62,8 +62,8 @@
         android:label="fragment_change_pin"
         tools:layout="@layout/fragment_change_pin" >
         <action
-            android:id="@+id/changePinActionProfile"
-            app:destination="@id/profileFragment" />
+            android:id="@+id/action_changePinFragment_to_changePinNewFragment"
+            app:destination="@id/changePinNewFragment" />
     </fragment>
     <fragment
         android:id="@+id/changePasswordFragment"
@@ -126,5 +126,14 @@
         <action
             android:id="@+id/action_transferFailedFragment_to_findReceiverFragment"
             app:destination="@id/findReceiverFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePinNewFragment"
+        android:name="com.hatta.zwallet.ui.layout.main.profile.ChangePinNewFragment"
+        android:label="fragment_change_pin_new"
+        tools:layout="@layout/fragment_change_pin_new" >
+        <action
+            android:id="@+id/action_changePinNewFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
 </navigation>

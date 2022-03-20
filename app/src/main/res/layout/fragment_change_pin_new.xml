@@ -5,9 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.layout.main.profile.ChangePinFragment"
+    tools:context=".ui.layout.main.profile.ChangePinNewFragment"
     android:background="@color/backgroundColor">
-
 
     <TextView
         android:id="@+id/btnBack"
@@ -22,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/textBtnchangePin"
+        android:id="@+id/textBtnChangePin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingVertical="15dp"
@@ -39,7 +38,7 @@
         android:layout_height="wrap_content"
         android:padding="15dp"
         android:textSize="16sp"
-        android:text="Enter your current 6 digits Zwallet PIN below to continue to the next steps."
+        android:text="Type your new 6 digits security PIN to use in Zwallet."
         android:textColor="@color/darkGreyColor"
         android:layout_marginHorizontal="15dp"
         app:layout_constraintStart_toStartOf="parent"

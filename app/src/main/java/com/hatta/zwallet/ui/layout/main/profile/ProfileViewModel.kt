@@ -7,6 +7,7 @@ import com.hatta.zwallet.data.ZWalletDataSource
 import com.hatta.zwallet.data.api.ZWalletApi
 import com.hatta.zwallet.model.APIResponse
 import com.hatta.zwallet.model.Balance
+import com.hatta.zwallet.model.request.SetPinRequest
 import com.hatta.zwallet.network.NetworkConfig
 import com.hatta.zwallet.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,4 +19,14 @@ class ProfileViewModel @Inject constructor (private var  dataSource : ZWalletDat
     fun getBalance(): LiveData<Resource<APIResponse<List<Balance>>?>> {
         return dataSource.getBalance()
     }
+
+    fun checkPin(pin: Int): LiveData<Resource<APIResponse<String>?>> {
+        return dataSource.checkPin(pin)
+    }
+
+    fun setPin(request: SetPinRequest): LiveData<Resource<APIResponse<String>?>> {
+        return dataSource.setPin(request)
+    }
+
+
 }

@@ -6,13 +6,14 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.*
+import androidx.fragment.app.Fragment
 import android.widget.EditText
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import com.hatta.zwallet.R
-import com.hatta.zwallet.databinding.FragmentChangePinBinding
+import com.hatta.zwallet.databinding.FragmentChangePinNewBinding
+import com.hatta.zwallet.model.request.SetPinRequest
 import com.hatta.zwallet.ui.widget.LoadingDialog
 import com.hatta.zwallet.utils.PREFS_NAME
 import com.hatta.zwallet.utils.State
@@ -20,19 +21,18 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.net.ssl.HttpsURLConnection
 
 @AndroidEntryPoint
-class ChangePinFragment : Fragment() {
-    private lateinit var binding: FragmentChangePinBinding
-    private lateinit var prefs : SharedPreferences
-    private lateinit var loadingDialog: LoadingDialog
+class ChangePinNewFragment : Fragment() {
+    private lateinit var binding: FragmentChangePinNewBinding
     private val viewModel: ProfileViewModel by activityViewModels()
-    var pin  = mutableListOf<EditText>()
-
+    private lateinit var loadingDialog: LoadingDialog
+    private lateinit var prefs : SharedPreferences
+    var pin = mutableListOf<EditText>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentChangePinBinding.inflate(layoutInflater)
+        binding = FragmentChangePinNewBinding.inflate(layoutInflater)
         loadingDialog = LoadingDialog(requireActivity())
         return binding.root
     }
@@ -49,32 +49,32 @@ class ChangePinFragment : Fragment() {
         }
 
         binding.btnChangePin.setOnClickListener {
-            val pinNumber = binding.pin1.text.toString()+
+            val request = SetPinRequest( binding.pin1.text.toString()+
                     binding.pin2.text.toString()+
                     binding.pin3.text.toString()+
                     binding.pin4.text.toString()+
                     binding.pin5.text.toString()+
-                    binding.pin6.text.toString()
+                    binding.pin6.text.toString())
 
-            viewModel.checkPin(pinNumber.toInt()).observe(viewLifecycleOwner){
+            viewModel.setPin(request).observe(viewLifecycleOwner){
                 when(it.state){
                     State.LOADING -> {
-                        loadingDialog.start("Checking Your PIN")
+                        loadingDialog.start("Processing Your New PIN")
                     }
                     State.SUCCESS -> {
                         if (it.resource?.status == HttpsURLConnection.HTTP_OK) {
                             loadingDialog.stop()
-                            Navigation.findNavController(view).navigate(R.id.action_changePinFragment_to_changePinNewFragment)
+                            Toast.makeText(context, it.resource?.message, Toast.LENGTH_SHORT).show()
+                            Navigation.findNavController(view).navigate(R.id.action_changePinNewFragment_to_profileFragment)
                         } else {
                             Toast.makeText(context, it.resource?.message, Toast.LENGTH_SHORT)
                                 .show()
                         }
                     }
                     State.ERROR -> {
-                        loadingDialog.start("Your PIN is not Match")
+                        loadingDialog.stop()
                         Toast.makeText(context, it.resource?.message, Toast.LENGTH_SHORT)
                             .show()
-
                     }
                 }
             }
@@ -125,4 +125,6 @@ class ChangePinFragment : Fragment() {
             })
         }
     }
+
+
 }
