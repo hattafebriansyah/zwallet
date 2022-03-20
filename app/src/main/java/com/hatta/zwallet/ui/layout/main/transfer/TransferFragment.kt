@@ -13,6 +13,7 @@ import com.hatta.zwallet.R
 import com.hatta.zwallet.databinding.FragmentTransferBinding
 import com.hatta.zwallet.model.request.TransferRequest
 import com.hatta.zwallet.utils.BASE_URL
+import com.hatta.zwallet.utils.Helper.formatPrice
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,6 +34,9 @@ class TransferFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         var id: String?=null
 
+        binding.btnBack.setOnClickListener {
+            Navigation.findNavController(view).popBackStack()
+        }
         binding.buttonContinueConfirmation.setOnClickListener {
             viewModel.setTransferParameter(TransferRequest(
                 id!!,
@@ -42,8 +46,12 @@ class TransferFragment : Fragment() {
             Navigation.findNavController(view).navigate(R.id.action_transferFragment2_to_transferConfirmationFragment2)
         }
 
-        binding.btnBack.setOnClickListener {
-            Navigation.findNavController(view).popBackStack()
+        viewModel.getBalance().observe(viewLifecycleOwner) {
+            binding.apply {
+                binding.textAmountAvailable.text = it.resource?.data?.get(0)?.balance.toString()
+                //binding.textAmountAvailable.formatPrice(it.resource?.data?.get(0)?.balance.toString())
+
+            }
         }
 
         viewModel.getSelectedContact().observe(viewLifecycleOwner) {

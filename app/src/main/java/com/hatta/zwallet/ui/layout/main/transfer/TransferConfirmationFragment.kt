@@ -75,7 +75,7 @@ class TransferConfirmationFragment : Fragment() {
                         RequestOptions.circleCropTransform()
                             .placeholder(R.drawable.ic_baseline_person_24))
                     .into(imageContact)
-            }
+                }
             }
 
             viewModel.getTransferParameter().observe(viewLifecycleOwner) {
@@ -101,7 +101,5 @@ class TransferConfirmationFragment : Fragment() {
                     binding.balanceValue.text = it.resource?.data?.get(0)?.balance.toString()
                 }
             }
-
-
         }
-    }
+}

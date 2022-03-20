@@ -20,6 +20,7 @@ class ProfileViewModel @Inject constructor (private var  dataSource : ZWalletDat
         return dataSource.getBalance()
     }
 
+
     fun checkPin(pin: Int): LiveData<Resource<APIResponse<String>?>> {
         return dataSource.checkPin(pin)
     }

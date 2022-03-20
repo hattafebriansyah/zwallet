@@ -50,7 +50,7 @@ class ProfileFragment : Fragment() {
         prepareData()
 
         binding.btnBack.setOnClickListener{
-            Navigation.findNavController(view).navigate(R.id.profileActionHome)
+            Navigation.findNavController(view).popBackStack()
         }
 
         binding.btnPersonalInformation.setOnClickListener{

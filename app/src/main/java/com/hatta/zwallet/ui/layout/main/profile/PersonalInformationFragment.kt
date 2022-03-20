@@ -48,7 +48,11 @@ class PersonalInformationFragment : Fragment() {
         prepareData()
 
         binding.btnBack.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.personalInformationActionProfile)
+            Navigation.findNavController(view).popBackStack()
+        }
+
+        binding.textManage.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_personalInformationFragment_to_managePhoneFragment)
         }
     }
 

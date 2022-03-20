@@ -95,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/amount"
                 android:gravity="center"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:textColor="@color/darkGreyColor"/>
             <TextView
                 android:id="@+id/amountValue"
@@ -104,7 +104,7 @@
                 android:text="Rp 00.00"
                 android:textStyle="bold"
                 android:layout_marginVertical="5dp"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -124,7 +124,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/balance"
                 android:gravity="center"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:textColor="@color/darkGreyColor"/>
             <TextView
                 android:id="@+id/balanceValue"
@@ -133,7 +133,7 @@
                 android:text="Rp 00.00"
                 android:textStyle="bold"
                 android:layout_marginVertical="5dp"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textColor="@color/black"/>
         </LinearLayout>
 
@@ -152,7 +152,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/date"
                 android:gravity="center"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:textColor="@color/darkGreyColor"/>
             <TextView
                 android:id="@+id/dateValue"
@@ -161,7 +161,7 @@
                 android:text="1 Januari 2000 , 01:01"
                 android:textStyle="bold"
                 android:layout_marginVertical="5dp"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textColor="@color/black"/>
         </LinearLayout>
 
@@ -180,7 +180,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/notes"
                 android:gravity="center"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:textColor="@color/darkGreyColor"/>
             <TextView
                 android:id="@+id/notesValue"
@@ -189,7 +189,7 @@
                 android:text="Buy Food "
                 android:textStyle="bold"
                 android:layout_marginVertical="5dp"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textColor="@color/black"/>
         </LinearLayout>
 

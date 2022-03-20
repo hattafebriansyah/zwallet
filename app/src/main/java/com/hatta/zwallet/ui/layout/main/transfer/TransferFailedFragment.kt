@@ -33,7 +33,9 @@ class TransferFailedFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         prepareData()
+
         binding.btnTryAgain.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_transferFailedFragment_to_findReceiverFragment)
         }

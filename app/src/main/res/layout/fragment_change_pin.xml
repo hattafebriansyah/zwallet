@@ -22,13 +22,13 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/textBtnchangePin"
+        android:id="@+id/textBtnChangePin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingVertical="15dp"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
-        android:text="Change PIN"
+        android:text="@string/textBtnChangePin"
         android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@id/btnBack"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:padding="15dp"
         android:textSize="16sp"
-        android:text="Enter your current 6 digits Zwallet PIN below to continue to the next steps."
+        android:text="@string/change_pin_desc"
         android:textColor="@color/darkGreyColor"
         android:layout_marginHorizontal="15dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -135,7 +135,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnChangePin"
-        android:text="Change PIN"
+        android:text="@string/text_continue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingVertical="14dp"

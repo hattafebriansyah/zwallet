@@ -8,13 +8,6 @@
     android:layout_marginBottom="10dp"
     android:background="@drawable/background_item_transaction_home">
 
-<!--    <ImageView-->
-<!--        android:id="@+id/pictureUser1"-->
-<!--        android:layout_width="54dp"-->
-<!--        android:layout_height="54dp"-->
-<!--        android:src="@drawable/user"-->
-<!--        android:background="@drawable/background_image_item"/>-->
-
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageTransaction"
         android:layout_width="54dp"

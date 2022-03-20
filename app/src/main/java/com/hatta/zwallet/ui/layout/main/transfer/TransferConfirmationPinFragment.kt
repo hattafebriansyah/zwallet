@@ -67,10 +67,10 @@ class TransferConfirmationPinFragment : Fragment() {
                 binding.pin5.text.toString()+
                 binding.pin6.text.toString()
 
-        viewModel.getSelectedContact().observe(viewLifecycleOwner){
-            var transferNameContact = "${it.name}"
-            var transferPhoneContact = "${it.phone}"
-        }
+//        viewModel.getSelectedContact().observe(viewLifecycleOwner){
+//            var transferNameContact = "${it.name}"
+//            var transferPhoneContact = "${it.phone}"
+//        }
 
         viewModel.getTransferParameter().observe(viewLifecycleOwner){
             request = it
@@ -94,7 +94,7 @@ class TransferConfirmationPinFragment : Fragment() {
                 }
                 State.ERROR ->{
                     loadingDialog.stop()
-                    Toast.makeText(context, "Your Transfer was Failed", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Your Transfer Failed", Toast.LENGTH_SHORT).show()
                     Navigation.findNavController(view).navigate(R.id.action_transferConfirmationPinFragment2_to_transferFailedFragment)
                 }
             }
@@ -139,7 +139,7 @@ class TransferConfirmationPinFragment : Fragment() {
                 if(x==KeyEvent.KEYCODE_DEL && pin.get(i).getText().toString().isEmpty() && i !=0){
                     pin.get(i-1).setText("")
                     pin.get(i-1).requestFocus()
-                    pin.get(i-1).setBackgroundResource(R.drawable.background_change_pin)
+                    pin.get(i).setBackgroundResource(R.drawable.background_change_pin)
                 }
                 false
             })

@@ -10,15 +10,13 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.navigation.Navigation
-import com.hatta.zwallet.R
-import com.hatta.zwallet.ui.adapter.TransactionAdapter
-import com.hatta.zwallet.databinding.FragmentChangePasswordBinding
+import com.hatta.zwallet.databinding.FragmentManagePhoneBinding
 import com.hatta.zwallet.model.APIResponse
 import com.hatta.zwallet.model.User
-import com.hatta.zwallet.model.request.ChangePasswordRequest
+import com.hatta.zwallet.model.request.ManagePhoneRequest
 import com.hatta.zwallet.network.NetworkConfig
-import com.hatta.zwallet.utils.PREFS_NAME
 import com.hatta.zwallet.ui.widget.LoadingDialog
+import com.hatta.zwallet.utils.PREFS_NAME
 import dagger.hilt.android.AndroidEntryPoint
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,17 +24,20 @@ import retrofit2.Response
 import javax.net.ssl.HttpsURLConnection
 
 @AndroidEntryPoint
-class ChangePasswordFragment : Fragment() {
-    private lateinit var binding: FragmentChangePasswordBinding
+class ManagePhoneFragment : Fragment() {
+    private lateinit var binding: FragmentManagePhoneBinding
     private lateinit var prefs : SharedPreferences
     private lateinit var loadingDialog: LoadingDialog
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentChangePasswordBinding.inflate(layoutInflater)
+        binding = FragmentManagePhoneBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -51,42 +52,32 @@ class ChangePasswordFragment : Fragment() {
             Navigation.findNavController(view).popBackStack()
         }
 
-        binding.btnChangePassword.setOnClickListener {
-            if (binding.currentPassword.text.isNullOrEmpty() || binding.newPassword.text.isNullOrEmpty() || binding.repeatPassword.text.isNullOrEmpty()){
-                Toast.makeText(activity, "Current Password or New Password is empty", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
+        binding.btnSubmit.setOnClickListener {
 
-            if (binding.newPassword.text.isNullOrEmpty() != binding.repeatPassword.text.isNullOrEmpty()){
-                Toast.makeText(activity, "Passwords do not match", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            val changePasswordRequest = ChangePasswordRequest(
-                binding.newPassword.text.toString(),
-                binding.currentPassword.text.toString(),
-            )
-            NetworkConfig(context).buildApi().changePassword(changePasswordRequest)
+            val managePhoneRequest = ManagePhoneRequest(
+                binding.phone.text.toString()
+                )
+
+            NetworkConfig(context).buildApi().managePhone(managePhoneRequest)
                 .enqueue(object : Callback<APIResponse<User>> {
                     override fun onResponse(
                         call: Call<APIResponse<User>>,
                         response: Response<APIResponse<User>>
                     ) {
                         if(response.body()?.status != HttpsURLConnection.HTTP_OK){
-                            Toast.makeText(context, "Authentication failed", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
                         }
                         else{
                             val res = response.body()!!.message
-                            Toast.makeText(context, res, Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "Manage Phone Number Success", Toast.LENGTH_SHORT).show()
                             Navigation.findNavController(view).popBackStack()
                         }
                     }
                     override fun onFailure(call: Call<APIResponse<User>>, t: Throwable) {
-                        Toast.makeText(context, "Failed to change password", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Failed to Manage Phone Number", Toast.LENGTH_SHORT).show()
                     }
                 })
         }
 
     }
-
-
 }

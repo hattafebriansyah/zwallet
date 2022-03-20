@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/textBtnConfirmPin"
+        android:id="@+id/textBtnEnterPin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingVertical="15dp"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/changePinDesc"
+        android:id="@+id/enterPinDesc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="15dp"
@@ -58,7 +58,7 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/changePinDesc">
+        app:layout_constraintTop_toBottomOf="@+id/enterPinDesc">
 
         <EditText
             android:id="@+id/pin1"
@@ -134,7 +134,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnTransfer"
-        android:text="Transfer Now"
+        android:text="@string/text_transfer_now"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingVertical="14dp"

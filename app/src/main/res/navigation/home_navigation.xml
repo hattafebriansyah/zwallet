@@ -55,6 +55,9 @@
         <action
             android:id="@+id/personalInformationActionProfile"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_personalInformationFragment_to_managePhoneFragment"
+            app:destination="@id/managePhoneFragment" />
     </fragment>
     <fragment
         android:id="@+id/changePinFragment"
@@ -136,4 +139,9 @@
             android:id="@+id/action_changePinNewFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/managePhoneFragment"
+        android:name="com.hatta.zwallet.ui.layout.main.profile.ManagePhoneFragment"
+        android:label="fragment_manage_phone"
+        tools:layout="@layout/fragment_manage_phone" />
 </navigation>

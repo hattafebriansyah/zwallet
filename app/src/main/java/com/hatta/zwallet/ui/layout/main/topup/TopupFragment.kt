@@ -35,7 +35,7 @@ class TopupFragment : Fragment() {
         prefs = context?.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)!!
 
         binding.btnBack.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.topUpActionHome)
+            Navigation.findNavController(view).popBackStack()
         }
     }
 }

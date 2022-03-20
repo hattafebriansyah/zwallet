@@ -23,6 +23,8 @@
     <string name="text_create_pin_success">PIN Successfully Created</string>
     <string name="text_create_pin_success_desc">Your PIN was successfully created and you can now access all the features in Zwallet. Login to your new account and start exploring!</string>
     <string name="text_va_number">Virtual Account Number</string>
+    <string name="text_transaction_history">Transaction History</string>
+    <string name="text_view_all">View All</string>
     <string name="textFindReceiver">Find Receiver</string>
     <string name="textTransfer">Transfer</string>
     <string name="text_transfer_to">Transfer to</string>
@@ -32,6 +34,7 @@
     <string name="date">Date &amp; time</string>
     <string name="notes">Notes</string>
     <string name="text_continue">Continue</string>
+    <string name="text_transfer_now">Transfer Now</string>
     <string name="topup_desc">We provide you virtual account number for top up via nearest ATM.</string>
     <string name="topup_howto">How to Top-Up</string>
     <string name="topup1">Go to the nearest ATM or you can use E-Banking.</string>
@@ -55,5 +58,11 @@
     <string name="hint_current_password">Current password</string>
     <string name="hint_new_password">New password</string>
     <string name="hint_repeat_password">Repeat password</string>
-
+    <string name="textBtnChangePin">Change PIN</string>
+    <string name="change_pin_desc">Enter your current 6 digits Zwallet PIN below to continue to the next steps.</string>
+    <string name="change_pin_new_desc">Type your new 6 digits security PIN to use in Zwallet.</string>
+    <string name="btnTextManagePhone">Manage Phone</string>
+    <string name="manage_phone_desc">You can only delete the phone number and then you must add another phone number.</string>
+    <string name="hint_enter_number_phone">Enter your phone number</string>
+    <string name="text_submit">Submit</string>
 </resources>

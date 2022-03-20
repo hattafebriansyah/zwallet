@@ -38,6 +38,7 @@ class CreatePinFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentCreatePinBinding.inflate(layoutInflater)
+        loadingDialog= LoadingDialog(requireActivity())
         return binding.root
     }
 
@@ -109,8 +110,10 @@ class CreatePinFragment : Fragment() {
                 }
                 if (keyCode == KeyEvent.KEYCODE_DEL && pin[i].text.toString().isEmpty() && i != 0) {
                     //this condition is to handel the delete input by users.
-                    pin[i - 1].setText("") //Deletes the digit of pin
-                    pin[i - 1].requestFocus()
+                    pin.get(i-1).setText("")
+                    pin.get(i-1).requestFocus()
+                    pin.get(i).setBackgroundResource(R.drawable.background_change_pin)
+
                     //and sets the focus on previous digit
                 }
                 false

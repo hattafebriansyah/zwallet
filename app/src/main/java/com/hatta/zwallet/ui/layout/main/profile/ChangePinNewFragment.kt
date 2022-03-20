@@ -118,7 +118,7 @@ class ChangePinNewFragment : Fragment() {
                     //this condition is to handel the delete input by users.
                     pin.get(i - 1).setText("") //Deletes the digit of OTP
                     pin.get(i - 1).requestFocus()
-                    pin.get(i - 1).setBackgroundResource(R.drawable.background_change_pin)
+                    pin.get(i).setBackgroundResource(R.drawable.background_change_pin)
                     //and sets the focus on previous digit
                 }
                 false

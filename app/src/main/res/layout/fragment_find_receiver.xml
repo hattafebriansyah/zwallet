@@ -89,35 +89,46 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@id/totalContact"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerTransactionContact"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/contact_transaction"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="10dp"
-            android:scrollbars="horizontal"
-            android:orientation="horizontal"
-            android:fadeScrollbars="false"
-            app:layout_constraintTop_toBottomOf="@+id/totalContact"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginHorizontal="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:fillViewport="true"
+            app:layout_constraintTop_toBottomOf="@id/textCountContact">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerTransactionContact"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    tools:listitem="@layout/contact_transaction"
+                    android:isScrollContainer="true"
+                    android:scrollbars="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <ProgressBar
+                    android:id="@+id/loadingIndicator"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:indeterminateTint="@color/primaryColor"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
 
 
-
-    <ProgressBar
-        android:id="@+id/loadingIndicator"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:indeterminateTint="@color/primaryColor"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 

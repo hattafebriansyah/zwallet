@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:padding="15dp"
         android:textSize="16sp"
-        android:text="Type your new 6 digits security PIN to use in Zwallet."
+        android:text="@string/change_pin_new_desc"
         android:textColor="@color/darkGreyColor"
         android:layout_marginHorizontal="15dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -134,7 +134,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnChangePin"
-        android:text="Change PIN"
+        android:text="@string/textBtnChangePin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingVertical="14dp"

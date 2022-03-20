@@ -52,6 +52,7 @@ class FindReceiverFragment : Fragment() {
         binding.btnBack.setOnClickListener {
             Navigation.findNavController(view).popBackStack()
         }
+
     }
 
     private fun prepareData() {
@@ -59,6 +60,7 @@ class FindReceiverFragment : Fragment() {
             val layoutManager = LinearLayoutManager(context)
             this.layoutManager = layoutManager
             adapter = contactAdapter
+
         }
 
         viewModel.getContactUser().observe(viewLifecycleOwner) {
@@ -78,6 +80,8 @@ class FindReceiverFragment : Fragment() {
                         this.contactAdapter.apply {
                             addData(it.resource.data!!)
                             notifyDataSetChanged()
+                            binding.totalContact.setText(""+ itemCount);
+
                         }
                     } else {
                         Toast.makeText(context, it.resource?.message, Toast.LENGTH_SHORT)

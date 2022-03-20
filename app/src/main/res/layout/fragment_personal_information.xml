@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/textFirstName"
                 android:gravity="center"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textColor="@color/darkGreyColor"/>
             <TextView
                 android:id="@+id/textFirstName"
@@ -69,7 +69,7 @@
                 android:text="Hatta"
                 android:textStyle="bold"
                 android:layout_marginVertical="5dp"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:textColor="@color/black"/>
 
     </LinearLayout>
@@ -89,7 +89,7 @@
             android:layout_height="wrap_content"
             android:text="@string/textLastName"
             android:gravity="center"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textColor="@color/darkGreyColor"/>
         <TextView
             android:id="@+id/textLastName"
@@ -98,7 +98,7 @@
             android:text="Febriansyah"
             android:textStyle="bold"
             android:layout_marginVertical="5dp"
-            android:textSize="20sp"
+            android:textSize="17sp"
             android:textColor="@color/black"/>
 
     </LinearLayout>
@@ -118,7 +118,7 @@
             android:layout_height="wrap_content"
             android:text="@string/textVerifiedEmail"
             android:gravity="center"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textColor="@color/darkGreyColor"/>
         <TextView
             android:id="@+id/textVerifiedEmail"
@@ -127,38 +127,64 @@
             android:text="hatta@gmail.com"
             android:textStyle="bold"
             android:layout_marginVertical="5dp"
-            android:textSize="20sp"
+            android:textSize="17sp"
             android:textColor="@color/black"/>
 
     </LinearLayout>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/cardVerifiedEmail"
         android:background="@drawable/backgound_topup"
         android:layout_margin="15dp"
         android:padding="15dp">
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/textNumberPhone"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:textColor="@color/darkGreyColor"/>
-        <TextView
-            android:id="@+id/textPhone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+62 823-1234-1234"
-            android:textStyle="bold"
-            android:layout_marginVertical="5dp"
-            android:textSize="20sp"
-            android:textColor="@color/black"/>
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            >
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/textNumberPhone"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textColor="@color/darkGreyColor"/>
+            <TextView
+                android:id="@+id/textPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+62 823-1234-1234"
+                android:textStyle="bold"
+                android:layout_marginVertical="5dp"
+                android:textSize="17sp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
+
+
+        <TextView
+            android:id="@+id/textManage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manage"
+            android:textStyle="bold"
+            android:layout_marginVertical="15dp"
+            android:textSize="15sp"
+            android:textColor="@color/primaryColor"
+            android:layout_gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
