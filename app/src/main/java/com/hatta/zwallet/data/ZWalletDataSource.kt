@@ -3,6 +3,7 @@ package com.hatta.zwallet.data
 import androidx.lifecycle.liveData
 import com.hatta.zwallet.data.api.ZWalletApi
 import com.hatta.zwallet.model.request.LoginRequest
+import com.hatta.zwallet.model.request.ManagePhoneRequest
 import com.hatta.zwallet.model.request.SetPinRequest
 import com.hatta.zwallet.model.request.TransferRequest
 import com.hatta.zwallet.utils.Resource
@@ -89,6 +90,26 @@ class ZWalletDataSource @Inject constructor(private val apiClient: ZWalletApi) {
             val response = apiClient.setPin(request)
             emit(Resource.success(response))
         } catch (e: java.lang.Exception){
+            emit(Resource.error(null, e.localizedMessage))
+        }
+    }
+
+    fun managePhone(request: ManagePhoneRequest) = liveData(Dispatchers.IO) {
+        emit(Resource.loading(null))
+        try {
+            val response = apiClient.managePhone(request)
+            emit(Resource.success(response))
+        } catch (e: java.lang.Exception){
+            emit(Resource.error(null, e.localizedMessage))
+        }
+    }
+
+    fun otpActivation(email:String, otp:String) = liveData(Dispatchers.IO) {
+        emit(Resource.loading(null))
+        try {
+            val response = apiClient.otpActivation(email,otp)
+            emit(Resource.success(response))
+        } catch (e: Exception) {
             emit(Resource.error(null, e.localizedMessage))
         }
     }

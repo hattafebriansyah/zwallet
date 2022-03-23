@@ -25,6 +25,7 @@ import java.time.format.DateTimeFormatter
 import java.util.*
 import com.hatta.zwallet.utils.Helper.formatPrice
 import com.hatta.zwallet.utils.PREFS_NAME
+import com.hatta.zwallet.utils.State
 
 @AndroidEntryPoint
 class TransferConfirmationFragment : Fragment() {
@@ -98,7 +99,15 @@ class TransferConfirmationFragment : Fragment() {
                     binding.dateValue.text = answer
                 }
                 viewModel.getBalance().observe(viewLifecycleOwner) {
-                    binding.balanceValue.text = it.resource?.data?.get(0)?.balance.toString()
+                    when (it.state) {
+                        State.LOADING -> {
+                        }
+                        State.SUCCESS -> {
+                            binding.balanceValue.formatPrice(it.resource?.data?.get(0)?.balance.toString())
+                        }
+                        State.ERROR -> {
+                        }
+                    }
                 }
             }
         }

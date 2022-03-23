@@ -15,6 +15,7 @@ import com.hatta.zwallet.databinding.FragmentTransferSuccessBinding
 import com.hatta.zwallet.ui.layout.main.MainActivity
 import com.hatta.zwallet.utils.BASE_URL
 import com.hatta.zwallet.utils.Helper.formatPrice
+import com.hatta.zwallet.utils.State
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
@@ -81,7 +82,15 @@ class TransferSuccessFragment : Fragment() {
                 binding.dateValue.text = answer
             }
             viewModel.getBalance().observe(viewLifecycleOwner) {
-                binding.balanceValue.text = it.resource?.data?.get(0)?.balance.toString()
+                when (it.state) {
+                    State.LOADING -> {
+                    }
+                    State.SUCCESS -> {
+                        binding.balanceValue.formatPrice(it.resource?.data?.get(0)?.balance.toString())
+                    }
+                    State.ERROR -> {
+                    }
+                }
             }
         }
 

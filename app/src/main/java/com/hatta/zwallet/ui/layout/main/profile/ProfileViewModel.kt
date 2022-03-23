@@ -7,6 +7,8 @@ import com.hatta.zwallet.data.ZWalletDataSource
 import com.hatta.zwallet.data.api.ZWalletApi
 import com.hatta.zwallet.model.APIResponse
 import com.hatta.zwallet.model.Balance
+import com.hatta.zwallet.model.User
+import com.hatta.zwallet.model.request.ManagePhoneRequest
 import com.hatta.zwallet.model.request.SetPinRequest
 import com.hatta.zwallet.network.NetworkConfig
 import com.hatta.zwallet.utils.Resource
@@ -20,13 +22,16 @@ class ProfileViewModel @Inject constructor (private var  dataSource : ZWalletDat
         return dataSource.getBalance()
     }
 
-
     fun checkPin(pin: Int): LiveData<Resource<APIResponse<String>?>> {
         return dataSource.checkPin(pin)
     }
 
     fun setPin(request: SetPinRequest): LiveData<Resource<APIResponse<String>?>> {
         return dataSource.setPin(request)
+    }
+
+    fun managePhone(request: ManagePhoneRequest): LiveData<Resource<APIResponse<User>?>> {
+        return dataSource.managePhone(request)
     }
 
 

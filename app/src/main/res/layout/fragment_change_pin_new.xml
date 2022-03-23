@@ -127,7 +127,8 @@
             android:layout_height="match_parent"
             android:digits="1234567890"
             android:inputType="number"
-            android:maxLength="1">
+            android:maxLength="1"
+            android:imeOptions="actionDone">
         </EditText>
 
     </LinearLayout>

@@ -78,23 +78,45 @@
                 android:textSize="16sp"
                 android:textColor="@color/black"/>
         </LinearLayout>
-
-
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/textAmountLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/cardTransfer">
 
     <TextView
         android:id="@+id/textAmountAvailable"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingVertical="15dp"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:layout_marginTop="10dp"
-        android:text="Rp120.000 Available"
+        android:text="Rp120.000"
         android:layout_gravity="center"
         android:textColor="@color/darkGreyColor"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/cardTransfer"
+        app:layout_constraintTop_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/textAvailable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="15dp"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:text=" Available"
+        android:layout_gravity="center"
+        android:textColor="@color/darkGreyColor"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/textAmountAvailable"/>
+
+</LinearLayout>
 
     <EditText
         android:id="@+id/amountTransfer"
@@ -109,18 +131,19 @@
         android:textColorHint="@color/darkGreyColor"
         android:gravity="center"
         android:background="@android:color/transparent"
-        app:layout_constraintTop_toBottomOf="@id/textAmountAvailable"
+        app:layout_constraintTop_toBottomOf="@id/textAmountLayout"
         app:layout_constraintStart_toStartOf="parent"
         android:digits="1234567890"
-        android:inputType="number"/>
+        android:inputType="number"
+        android:imeOptions="actionDone"/>
 
     <EditText
         android:id="@+id/noteTransfer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="15dp"
+        android:layout_margin="15dp"
         android:paddingVertical="15dp"
-        android:textSize="20sp"
+        android:textSize="17sp"
         android:hint="Add some notes"
         android:layout_gravity="center"
         android:textColor="@color/primaryColor"
@@ -129,7 +152,8 @@
         android:gravity="center"
         style="@style/EditText.Input"
         app:layout_constraintTop_toBottomOf="@id/amountTransfer"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:imeOptions="actionDone"/>
 
 
     <androidx.appcompat.widget.AppCompatButton
@@ -139,7 +163,7 @@
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="parent"
-        android:paddingVertical="12dp"
+        android:paddingVertical="10dp"
         android:background="@drawable/background_button_auth_active"
         android:textAllCaps="false"
         android:text="@string/text_continue"

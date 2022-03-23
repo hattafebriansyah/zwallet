@@ -54,7 +54,11 @@
         android:id="@+id/otpFragment"
         android:name="com.hatta.zwallet.ui.layout.auth.otp.OtpFragment"
         android:label="fragment_otp"
-        tools:layout="@layout/fragment_otp" />
+        tools:layout="@layout/fragment_otp" >
+        <action
+            android:id="@+id/action_otpFragment_self"
+            app:destination="@id/otpFragment" />
+    </fragment>
     <fragment
         android:id="@+id/createPinFragment"
         android:name="com.hatta.zwallet.ui.layout.auth.createpin.CreatePinFragment"

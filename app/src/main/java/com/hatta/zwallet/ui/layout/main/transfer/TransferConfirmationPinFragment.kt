@@ -67,10 +67,6 @@ class TransferConfirmationPinFragment : Fragment() {
                 binding.pin5.text.toString()+
                 binding.pin6.text.toString()
 
-//        viewModel.getSelectedContact().observe(viewLifecycleOwner){
-//            var transferNameContact = "${it.name}"
-//            var transferPhoneContact = "${it.phone}"
-//        }
 
         viewModel.getTransferParameter().observe(viewLifecycleOwner){
             request = it
@@ -86,7 +82,6 @@ class TransferConfirmationPinFragment : Fragment() {
                 State.LOADING ->{
                     loadingDialog.start("Processing Your Transfer")
                 }
-
                 State.SUCCESS ->{
                     loadingDialog.start("Transfer Success")
                     loadingDialog.stop()

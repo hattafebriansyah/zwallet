@@ -63,18 +63,17 @@ class ChangePinFragment : Fragment() {
                     }
                     State.SUCCESS -> {
                         if (it.resource?.status == HttpsURLConnection.HTTP_OK) {
-                            loadingDialog.stop()
                             Navigation.findNavController(view).navigate(R.id.action_changePinFragment_to_changePinNewFragment)
+                            loadingDialog.stop()
                         } else {
                             Toast.makeText(context, it.resource?.message, Toast.LENGTH_SHORT)
                                 .show()
                         }
                     }
                     State.ERROR -> {
-                        loadingDialog.start("Your PIN is not Match")
-                        Toast.makeText(context, it.resource?.message, Toast.LENGTH_SHORT)
+                        loadingDialog.stop()
+                        Toast.makeText(context, "PIN not Match", Toast.LENGTH_SHORT)
                             .show()
-
                     }
                 }
             }

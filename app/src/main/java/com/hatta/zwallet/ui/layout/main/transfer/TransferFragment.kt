@@ -14,6 +14,7 @@ import com.hatta.zwallet.databinding.FragmentTransferBinding
 import com.hatta.zwallet.model.request.TransferRequest
 import com.hatta.zwallet.utils.BASE_URL
 import com.hatta.zwallet.utils.Helper.formatPrice
+import com.hatta.zwallet.utils.State
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -48,9 +49,15 @@ class TransferFragment : Fragment() {
 
         viewModel.getBalance().observe(viewLifecycleOwner) {
             binding.apply {
-                binding.textAmountAvailable.text = it.resource?.data?.get(0)?.balance.toString()
-                //binding.textAmountAvailable.formatPrice(it.resource?.data?.get(0)?.balance.toString())
-
+                when (it.state) {
+                    State.LOADING -> {
+                    }
+                    State.SUCCESS -> {
+                        binding.textAmountAvailable.formatPrice(it.resource?.data?.get(0)?.balance.toString())
+                    }
+                    State.ERROR -> {
+                    }
+                }
             }
         }
 

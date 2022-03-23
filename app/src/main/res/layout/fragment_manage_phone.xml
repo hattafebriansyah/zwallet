@@ -46,38 +46,79 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnBack"/>
 
-    <EditText
-        android:id="@+id/inputPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="45dp"
-        android:hint="@string/hint_current_password"
-        android:autofillHints="emailAddress"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/changePasswordDesc"
-        style="@style/EditText.Input"
-        android:inputType="number"
-        android:background="@drawable/background_input_change_password"
-        android:drawableStart="@drawable/ic_baseline_lock_24"/>
 
-    <EditText
-        android:id="@+id/phone"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
+        android:orientation="horizontal"
+        android:gravity="center"
         android:layout_marginTop="45dp"
-        android:hint="@string/hint_enter_number_phone"
-        android:autofillHints="emailAddress"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/changePasswordDesc"
-        style="@style/EditText.Input"
-        android:digits="1234567890"
-        android:inputType="number"
-        android:background="@drawable/background_input_change_password"
-        android:drawableStart="@drawable/ic_baseline_phone_24"/>
+        app:layout_constraintTop_toBottomOf="@id/changePasswordDesc">
+
+        <EditText
+            android:id="@+id/phone62"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_marginStart="20dp"
+            android:text="+62"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:inputType="number"
+            android:drawableStart="@drawable/ic_baseline_phone_24"
+            android:textColor="@color/darkGreyColor"
+            android:layout_marginHorizontal="5dp"
+            style="@style/EditText.Input"
+            />
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_marginEnd="20dp"
+            android:hint="@string/hint_enter_number_phone"
+            android:textSize="16sp"
+            android:inputType="number"
+            android:layout_weight="1"
+            style="@style/EditText.Input"
+           />
+
+    </LinearLayout>
+
+
+
+<!--    <EditText-->
+<!--        android:id="@+id/phone62"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginHorizontal="16dp"-->
+<!--        android:layout_marginTop="45dp"-->
+<!--        android:text="+62"-->
+<!--        android:textColor="@color/darkGreyColor"-->
+<!--        android:autofillHints="emailAddress"-->
+<!--        android:layout_weight=""-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/changePasswordDesc"-->
+<!--        android:digits="1234567890"-->
+<!--        android:inputType="number"-->
+<!--        android:background="@drawable/background_input_change_password"-->
+<!--        android:drawableStart="@drawable/ic_baseline_phone_24"/>-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/phone"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginHorizontal="16dp"-->
+<!--        android:layout_marginTop="45dp"-->
+<!--        android:hint="@string/hint_enter_number_phone"-->
+<!--        android:autofillHints="emailAddress"-->
+<!--        android:layout_weight="2"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/changePasswordDesc"-->
+<!--        android:digits="1234567890"-->
+<!--        android:inputType="number"-->
+<!--        android:background="@drawable/background_input_change_password"-->
+<!--        />-->
 
 
 

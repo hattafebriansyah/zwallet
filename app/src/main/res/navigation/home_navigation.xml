@@ -143,5 +143,9 @@
         android:id="@+id/managePhoneFragment"
         android:name="com.hatta.zwallet.ui.layout.main.profile.ManagePhoneFragment"
         android:label="fragment_manage_phone"
-        tools:layout="@layout/fragment_manage_phone" />
+        tools:layout="@layout/fragment_manage_phone" >
+        <action
+            android:id="@+id/action_managePhoneFragment_to_personalInformationFragment"
+            app:destination="@id/personalInformationFragment" />
+    </fragment>
 </navigation>

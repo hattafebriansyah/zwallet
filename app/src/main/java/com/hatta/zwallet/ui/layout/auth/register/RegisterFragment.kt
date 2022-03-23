@@ -43,8 +43,13 @@ class RegisterFragment : Fragment() {
 
         prefs = activity?.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)!!
 
+        binding.textGotoLoginLink.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.registerActionLogin)
+        }
 
         binding.btnSignUp.setOnClickListener {
+            prefs.edit().putString(KEY_REGISTER_EMAIL,binding.inputEmail.text.toString()).apply()
+
             if (binding.inputUsername.text.isNullOrEmpty()|| binding.inputEmail.text.isNullOrEmpty()|| binding.inputPassword.text.isNullOrEmpty()){
                 Toast.makeText(activity, "Username / Email / Password cannot be Empty", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -82,10 +87,5 @@ class RegisterFragment : Fragment() {
         }
 
 
-
-
-        binding.textGotoLoginLink.setOnClickListener{
-            Navigation.findNavController(view).navigate(R.id.registerActionLogin)
-        }
     }
 }

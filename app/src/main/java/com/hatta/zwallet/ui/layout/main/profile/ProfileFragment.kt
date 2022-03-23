@@ -52,14 +52,12 @@ class ProfileFragment : Fragment() {
         binding.btnBack.setOnClickListener{
             Navigation.findNavController(view).popBackStack()
         }
-
         binding.btnPersonalInformation.setOnClickListener{
             Navigation.findNavController(view).navigate(R.id.profileActionPersonalInformation)
         }
         binding.btnChangePassword.setOnClickListener{
             Navigation.findNavController(view).navigate(R.id.profileActionChangePassword)
         }
-
         binding.btnChangePin.setOnClickListener{
             Navigation.findNavController(view).navigate(R.id.profileActionChangePin)
         }
@@ -82,7 +80,6 @@ class ProfileFragment : Fragment() {
                 }
                 .show()
         }
-
     }
 
 
@@ -94,7 +91,6 @@ class ProfileFragment : Fragment() {
                 State.LOADING -> {
                     loadingDialog.start("Go to Profile")
                 }
-
                 State.SUCCESS -> {
                     if (it.resource?.status == HttpsURLConnection.HTTP_OK) {
                         this.transactionAdapter.apply {
@@ -112,17 +108,13 @@ class ProfileFragment : Fragment() {
                             .show()
                     }
                     loadingDialog.dismiss()
-
                 }
-
                 State.ERROR -> {
                     loadingDialog.stop()
                     Toast.makeText(context, it.message, Toast.LENGTH_SHORT)
                         .show()
                 }
             }
-
-
         }
     }
 }
